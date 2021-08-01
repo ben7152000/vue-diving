@@ -11,7 +11,6 @@ export default {
 <style lang="scss" scoped>
 .small-banner {
   margin-top: 100px;
-  margin-bottom: 100px;
   width: 100%;
   height: 350px;
   background-image: url("../static/Banner/banner-2.jpg");
