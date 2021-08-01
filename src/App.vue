@@ -1,5 +1,6 @@
 <template>
   <div id="app" class="main-container">
+    <Navbar />
     <main>
       <router-view/>
     </main>
@@ -7,8 +8,12 @@
 </template>
 
 <script>
+import Navbar from './components/Navbar'
 export default {
-
+  name: 'App',
+  components: {
+    Navbar
+  }
 }
 </script>
 
@@ -24,6 +29,13 @@ main {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+}
+
+.container {
+  max-width: 1440px;
+  width: 100%;
+  padding: 0;
+  margin: 0 auto;
 }
 
 </style>
