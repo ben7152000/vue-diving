@@ -3,6 +3,7 @@
     <Banner />
     <ServerLocation />
     <Courses />
+    <SmallBanner />
   </div>
 </template>
 
@@ -10,12 +11,14 @@
 import Banner from '../components/Banner'
 import ServerLocation from '../components/ServerLocation'
 import Courses from '../components/Courses'
+import SmallBanner from '../components/SmallBanner'
 export default {
   name: 'HomePage',
   components: {
     Banner,
     ServerLocation,
-    Courses
+    Courses,
+    SmallBanner
   }
 }
 </script>
