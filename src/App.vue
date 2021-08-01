@@ -5,17 +5,20 @@
       <router-view/>
     </main>
     <Footer />
+    <Copyright />
   </div>
 </template>
 
 <script>
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+import Copyright from './components/Copyright'
 export default {
   name: 'App',
   components: {
     Navbar,
-    Footer
+    Footer,
+    Copyright
   }
 }
 </script>
