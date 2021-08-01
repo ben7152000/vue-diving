@@ -17,9 +17,9 @@
           <li>
             執照課程
             <ul>
-              <li>ADIA 1 初級潛水員</li>
-              <li>ADIA 2 進階潛水員</li>
-              <li>ADIA 3 專業潛水員</li>
+              <li>AIDA 1 初級潛水員</li>
+              <li>AIDA 2 進階潛水員</li>
+              <li>AIDA 3 專業潛水員</li>
             </ul>
           </li>
           <li>

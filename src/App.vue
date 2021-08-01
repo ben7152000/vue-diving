@@ -40,7 +40,6 @@ main {
 
 section {
   padding-top: 100px;
-  padding-bottom: 100px;
 }
 
 </style>

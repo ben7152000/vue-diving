@@ -1,7 +1,7 @@
 <template>
   <section>
     <Subtitle subtitle="服務據點"/>
-    <div class="container">
+    <div class="container container-server">
       <div class="img">
         <img src="../static/serverLocation.jpg" alt="龍洞岬裝備中心">
       </div>
@@ -30,9 +30,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container {
-  padding-top: 50px;
-  padding-bottom: 50px;
+.container-server {
+  padding-top: 100px;
   display: flex;
   align-items: center;
 }
@@ -76,7 +75,10 @@ export default {
   }
   > .icon {
     background: #E37E0C;
-    padding: 8px 16px;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
     border-radius: 50%;
     margin-right: 16px;
   }

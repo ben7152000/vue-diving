@@ -27,7 +27,7 @@ export default {
 span {
   flex: 2;
   background: #fff;
-  height: 2px;
+  height: 1px;
 }
 h2 {
   flex: 1;

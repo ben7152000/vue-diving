@@ -12,9 +12,9 @@ import locale from 'element-ui/lib/locale'
 // font awesome
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { faMobileAlt } from '@fortawesome/free-solid-svg-icons'
+import { faMobileAlt, faAddressCard } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faMobileAlt)
+library.add(faMobileAlt, faAddressCard)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 Vue.use(ElementUI)
