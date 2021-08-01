@@ -38,4 +38,9 @@ main {
   margin: 0 auto;
 }
 
+section {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
 </style>
