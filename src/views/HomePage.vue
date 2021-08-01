@@ -1,12 +1,16 @@
 <template>
-  <div>
-    HomePage
+  <div class="homepage">
+    <Banner />
   </div>
 </template>
 
 <script>
+import Banner from '../components/Banner'
 export default {
-  name: 'HomePage'
+  name: 'HomePage',
+  components: {
+    Banner
+  }
 }
 </script>
 

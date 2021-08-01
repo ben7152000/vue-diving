@@ -64,6 +64,9 @@ li {
 
 .navbar {
   background-color: #000;
+  position: fixed;
+  width: 100%;
+  z-index: 999;
 }
 
 .row {
@@ -92,11 +95,13 @@ li {
       &:hover {
         > ul {
           opacity: 1;
+          visibility: visible;
           transition: opacity .5s ease;
         }
       }
       > ul {
         opacity: 0;
+        visibility: hidden;
         position: absolute;
         left: 0;
         top: 72px;
