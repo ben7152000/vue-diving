@@ -1,7 +1,7 @@
 <template>
   <el-row type="flex" justify="center" class="question-section">
     <el-col :xs="24" :md="20" :lg="16">
-      <Breadcrumb name="相關問題"/>
+      <Breadcrumb name="常見問答"/>
       <div class="question" v-for="question in questions" :key="question.id">
         <h3>{{ question.title }}</h3>
         <p v-html="question.content"></p>
