@@ -16,11 +16,13 @@ export default new VueRouter({
       path: '/products',
       name: 'Products',
       component: () => import('../views/Products'),
-      children: {
-        path: '/:id',
-        name: 'Product',
-        component: () => import('../views/Product')
-      }
+      children: [
+        {
+          path: ':id',
+          name: 'Product',
+          component: () => import('../views/Product')
+        }
+      ]
     },
     {
       path: '/favorites',
