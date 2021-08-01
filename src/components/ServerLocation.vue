@@ -10,7 +10,7 @@
         <h4>新北市貢寮區龍洞街1-5號</h4>
         <div class="phone">
         <div class="icon">
-         <font-awesome-icon icon="mobile-alt" />
+          <font-awesome-icon icon="mobile-alt" />
         </div>
         <span>0955-857-339</span>
         </div>

@@ -6,6 +6,7 @@
     </main>
     <Footer />
     <Copyright />
+    <SocialMedia />
   </div>
 </template>
 
@@ -13,12 +14,14 @@
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Copyright from './components/Copyright'
+import SocialMedia from './components/SocialMedia'
 export default {
   name: 'App',
   components: {
     Navbar,
     Footer,
-    Copyright
+    Copyright,
+    SocialMedia
   }
 }
 </script>
