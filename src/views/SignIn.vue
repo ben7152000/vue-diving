@@ -4,7 +4,6 @@
     <Subtitle subtitle="會員登入"/>
     <section>
       <div class="container">
-        <div class="row">
           <form>
             <div class="input">
               <label for="account">會員帳號</label>
@@ -15,10 +14,9 @@
               <input type="tel" id="password" placeholder="請填入密碼 ...">
             </div>
             <p>溫馨提醒：未註冊帳號的手機，登入時將會自動註冊</p>
-            <router-link to="/forgetPassword">忘記密碼？</router-link>
+            <router-link to="/forget-password">忘記密碼？</router-link>
             <button>確認送出</button>
           </form>
-        </div>
       </div>
     </section>
   </section>

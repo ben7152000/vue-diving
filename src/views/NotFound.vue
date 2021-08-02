@@ -1,7 +1,11 @@
 <template>
-  <div class="container">
-    <p>404 找不到網頁</p>
-  </div>
+  <section>
+    <div class="container">
+      <div class="row">
+        <p>404 找不到網頁</p>
+      </div>
+    </div>
+  </section>
 </template>
 
 <script>
@@ -11,19 +15,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container {
-  width: 100%;
-  height: 50vh;
+.row {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(to bottom, rgba(white, 0.8), rgba(white, 0));
-}
-
-p {
-  font-weight: 500;
-  letter-spacing: 2px;
-  color: #44607a;
+  height: 50vh;
+  > p {
+    font-size: 1.8rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: #ccc;
+  }
 }
 </style>

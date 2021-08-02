@@ -6,29 +6,29 @@
           <a href="/">LOGO</a>
         </h1>
         <ul>
-          <li>
+          <router-link to="/about-us" tag="li">
             關於龍洞岬
             <ul>
               <li>龍洞岬介紹</li>
               <li>服務項目</li>
-              <li>服務據點</li>
             </ul>
-          </li>
+          </router-link>
           <li>
             執照課程
             <ul>
-              <li>AIDA 1 初級潛水員</li>
-              <li>AIDA 2 進階潛水員</li>
-              <li>AIDA 3 專業潛水員</li>
+              <li>體驗自由潛水</li>
+              <li>AIDA 1 初級自由潛水</li>
+              <li>AIDA 2 進階自由潛水</li>
+              <li>AIDA 3 專業自由潛水</li>
             </ul>
           </li>
-          <li>
+          <router-link to="/products" tag="li">
             商品櫥窗
             <ul>
-              <li>浮潛裝備</li>
-              <li>自由裝備</li>
+              <router-link to="/products/snorkeling" tag="li">浮潛裝備</router-link>
+              <router-link to="/products/freediving" tag="li">自潛裝備</router-link>
             </ul>
-          </li>
+          </router-link>
           <router-link to="/knowledge" tag="li">
             潛水知識
             <ul>
@@ -39,8 +39,8 @@
               <li>小常識</li>
             </ul>
           </router-link>
-          <router-link to="/contactUs" tag="li">聯絡我們</router-link>
-          <router-link to="/signIn" tag="li">會員專區</router-link>
+          <router-link to="/contact-us" tag="li">聯絡我們</router-link>
+          <router-link to="/sign-in" tag="li">會員專區</router-link>
         </ul>
       </div>
     </div>
@@ -102,7 +102,7 @@ li {
         left: 0;
         top: 72px;
         background: lighten(#000, 20%);
-        width: 210px;
+        width: 230px;
         > li {
           padding: 24px;
           cursor: pointer;

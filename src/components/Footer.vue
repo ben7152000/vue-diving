@@ -3,20 +3,20 @@
     <div class="container">
       <div class="row">
         <ul>
-          <li>
+          <router-link to="/about-us" tag="li">
             關於龍洞岬
             <ul>
               <li>龍洞岬介紹</li>
               <li>服務項目</li>
-              <li>服務據點</li>
             </ul>
-          </li>
+          </router-link>
           <li>
             執照課程
             <ul>
-              <li>AIDA 1 初級潛水員</li>
-              <li>AIDA 2 進階潛水員</li>
-              <li>AIDA 3 專業潛水員</li>
+              <li>體驗自由潛水</li>
+              <li>AIDA 1 初級自由潛水</li>
+              <li>AIDA 2 進階自由潛水</li>
+              <li>AIDA 3 專業自由潛水</li>
             </ul>
           </li>
           <li>
@@ -34,14 +34,14 @@
             <ul>
               <router-link to="/member" tag="li">課程報名訂單</router-link>
               <router-link to="/member" tag="li">會員資料修改</router-link>
-              <router-link to="/forgetPassword" tag="li">忘記密碼</router-link>
+              <router-link to="/forget-password" tag="li">忘記密碼</router-link>
             </ul>
           </li>
           <li>
             其他
             <ul>
-              <router-link to="/contactUs" tag="li">聯絡我們</router-link>
-              <li>商品櫥窗</li>
+              <router-link to="/contact-us" tag="li">聯絡我們</router-link>
+              <router-link to="/products" tag="li">商品櫥窗</router-link>
             </ul>
           </li>
         </ul>

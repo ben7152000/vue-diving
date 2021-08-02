@@ -13,16 +13,19 @@ export default new VueRouter({
       component: HomePage
     },
     {
+      path: '/about-us',
+      name: 'About-us',
+      component: () => import('../views/AboutUs')
+    },
+    {
       path: '/products',
       name: 'Products',
-      component: () => import('../views/Products'),
-      children: [
-        {
-          path: ':id',
-          name: 'Product',
-          component: () => import('../views/Product')
-        }
-      ]
+      component: () => import('../views/Products')
+    },
+    {
+      path: '/products/:id',
+      name: 'Product',
+      component: () => import('../views/Product')
     },
     {
       path: '/knowledge',
@@ -30,17 +33,17 @@ export default new VueRouter({
       component: () => import('../views/Knowledge')
     },
     {
-      path: '/contactUs',
+      path: '/contact-us',
       name: 'Contact-us',
       component: () => import('../views/ContactUs')
     },
     {
-      path: '/signIn',
+      path: '/sign-in',
       name: 'Sign-in',
       component: () => import('../views/SignIn')
     },
     {
-      path: '/forgetPassword',
+      path: '/forget-password',
       name: 'Forget-password',
       component: () => import('../views/ForgetPassword')
     },
