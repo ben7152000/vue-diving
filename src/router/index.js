@@ -25,6 +25,11 @@ export default new VueRouter({
       ]
     },
     {
+      path: '/knowledge',
+      name: 'Knowledge',
+      component: () => import('../views/Knowledge')
+    },
+    {
       path: '/contactUs',
       name: 'Contact-us',
       component: () => import('../views/ContactUs')

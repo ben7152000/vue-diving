@@ -32,8 +32,8 @@
           <li>
             會員專區
             <ul>
-              <li>課程報名訂單</li>
-              <li>會員資料修改</li>
+              <router-link to="/member" tag="li">課程報名訂單</router-link>
+              <router-link to="/member" tag="li">會員資料修改</router-link>
               <router-link to="/forgetPassword" tag="li">忘記密碼</router-link>
             </ul>
           </li>

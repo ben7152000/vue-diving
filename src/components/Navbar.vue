@@ -29,7 +29,7 @@
               <li>自由裝備</li>
             </ul>
           </li>
-          <li>
+          <router-link to="/knowledge" tag="li">
             潛水知識
             <ul>
               <li>潛水玩什麼</li>
@@ -38,7 +38,7 @@
               <li>避免潛水意外</li>
               <li>小常識</li>
             </ul>
-          </li>
+          </router-link>
           <router-link to="/contactUs" tag="li">聯絡我們</router-link>
           <router-link to="/signIn" tag="li">會員專區</router-link>
         </ul>
