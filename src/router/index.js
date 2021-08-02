@@ -25,26 +25,6 @@ export default new VueRouter({
       ]
     },
     {
-      path: '/favorites',
-      name: 'Favorites',
-      component: () => import('../views/Favorites')
-    },
-    {
-      path: '/question',
-      name: 'Question',
-      component: () => import('../views/Question')
-    },
-    {
-      path: '/policies',
-      name: 'Policies',
-      component: () => import('../views/Policies')
-    },
-    {
-      path: '/checkout',
-      name: 'Checkout',
-      component: () => import('../views/Checkout')
-    },
-    {
       path: '/contactUs',
       name: 'Contact-us',
       component: () => import('../views/ContactUs')
@@ -60,19 +40,9 @@ export default new VueRouter({
       component: () => import('../views/ForgetPassword')
     },
     {
-      path: '/orders',
-      name: 'Orders',
-      component: () => import('../views/Orders')
-    },
-    {
-      path: '/admin/signIn',
-      name: 'Admin-signIn',
-      component: () => import('../views/Admin/AdminSignIn')
-    },
-    {
-      path: '/admin/dashboard',
-      name: 'Admin-dashboard',
-      component: () => import('../views/Admin/AdminDashboard')
+      path: '/member',
+      name: 'Member',
+      component: () => import('../views/Member')
     },
     {
       path: '*',
