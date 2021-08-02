@@ -40,7 +40,7 @@ li:not(:last-child) {
   transition: color .5s ease;
 
   &:hover {
-    color: darken(#fff, 30%);
+    color: #E37E0C;
   }
 
   &:after {
@@ -50,6 +50,6 @@ li:not(:last-child) {
 }
 
 .active {
-  color: #ffc66c;
+  color: #E37E0C;
 }
 </style>

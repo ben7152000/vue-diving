@@ -39,12 +39,8 @@
               <li>小常識</li>
             </ul>
           </li>
-          <li>
-            聯絡我們
-          </li>
-          <li>
-            會員專區
-          </li>
+          <router-link to="/contactUs" tag="li">聯絡我們</router-link>
+          <router-link to="/signIn" tag="li">會員專區</router-link>
         </ul>
       </div>
     </div>

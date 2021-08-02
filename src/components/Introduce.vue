@@ -9,7 +9,7 @@
       <div class="contact">
         <h2>聯絡我們</h2>
         <p>您對本網站若有任何建議、批評或指教，請例用這裡的信箱告訴我們</p>
-        <a href="/">填寫聯絡表單</a>
+        <router-link to="/contact-us">填寫聯絡表單</router-link>
       </div>
     </div>
   </section>

@@ -45,9 +45,19 @@ export default new VueRouter({
       component: () => import('../views/Checkout')
     },
     {
-      path: '/contact-us',
+      path: '/contactUs',
       name: 'Contact-us',
       component: () => import('../views/ContactUs')
+    },
+    {
+      path: '/signIn',
+      name: 'Sign-in',
+      component: () => import('../views/SignIn')
+    },
+    {
+      path: '/forgetPassword',
+      name: 'Forget-password',
+      component: () => import('../views/ForgetPassword')
     },
     {
       path: '/orders',
@@ -69,5 +79,9 @@ export default new VueRouter({
       name: 'NotFound',
       component: NotFound
     }
-  ]
+  ],
+  // 跳轉時回到最上面
+  scrollBehavior (to, from, savedPosition) {
+    return { x: 0, y: 0 }
+  }
 })

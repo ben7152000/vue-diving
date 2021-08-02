@@ -7,20 +7,20 @@
             <div class="input-group">
               <div class="input">
                 <label for="name">姓名 *</label><br>
-                <input type="text" id="name">
+                <input type="text" id="name" placeholder="請輸入姓名 ...">
               </div>
               <div class="input">
                 <label for="phone">聯絡電話</label><br>
-                <input type="tel" id="phone">
+                <input type="tel" id="phone" placeholder="0915-123-456...">
               </div>
               <div class="input">
                 <label for="email">電子信箱 *</label><br>
-                <input type="email" id="email">
+                <input type="email" id="email" placeholder="admin@gmail.com ...">
               </div>
             </div>
             <div class="textarea">
               <label for="content">諮詢內容 *</label><br>
-              <textarea id="content"></textarea>
+              <textarea id="content" placeholder="請輸入內容 ..." />
             </div>
           </div>
           <button>確認送出</button>

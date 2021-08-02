@@ -34,13 +34,13 @@
             <ul>
               <li>課程報名訂單</li>
               <li>會員資料修改</li>
-              <li>忘記密碼</li>
+              <router-link to="/forgetPassword" tag="li">忘記密碼</router-link>
             </ul>
           </li>
           <li>
             其他
             <ul>
-              <li>聯絡我們</li>
+              <router-link to="/contactUs" tag="li">聯絡我們</router-link>
               <li>商品櫥窗</li>
             </ul>
           </li>
@@ -82,6 +82,7 @@ footer {
           padding: 8px 0;
           color: darken(#fff, 50%);
           transition: color .5s ease;
+          cursor: pointer;
           &:hover {
             color: #E37E0C;
           }
