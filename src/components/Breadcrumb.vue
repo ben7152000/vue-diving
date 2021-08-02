@@ -1,10 +1,10 @@
 <template>
-  <nav class="breadcrumb">
-    <ul class="nav-list">
-      <li class="nav-item" @click="$router.push('/')">首頁</li>
-      <li class="nav-item active">{{ name }}</li>
-    </ul>
-  </nav>
+  <div class="container">
+      <ul class="nav-list">
+          <li class="nav-item" @click="$router.push('/')">首頁</li>
+          <li class="nav-item active">{{ name }}</li>
+      </ul>
+  </div>
 </template>
 
 <script>
@@ -30,20 +30,22 @@ li {
   align-items: baseline;
   line-height: 40px;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 1.2rem;
 }
 
 li:not(:last-child) {
   cursor: pointer;
   font-weight: 500;
+  color: #fff;
+  transition: color .5s ease;
 
   &:hover {
-    color: #44607a;
+    color: darken(#fff, 30%);
   }
 
   &:after {
     content: "/";
-    margin: 5px;
+    margin: 0 16px;
   }
 }
 

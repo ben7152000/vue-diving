@@ -45,6 +45,11 @@ export default new VueRouter({
       component: () => import('../views/Checkout')
     },
     {
+      path: '/contact-us',
+      name: 'Contact-us',
+      component: () => import('../views/ContactUs')
+    },
+    {
       path: '/orders',
       name: 'Orders',
       component: () => import('../views/Orders')
