@@ -49,11 +49,12 @@ export default {
       padding: 64px 48px;
       > .input-group {
         display: flex;
+        justify-content: space-between;
         margin-bottom: 32px;
         > .input {
-          flex: 1;
+          width: 30%;
           > input {
-            width: 360px;
+            width: 100%;
             height: 40px;
             background: lighten(#000, 30%);
             border: 1px solid #fff;

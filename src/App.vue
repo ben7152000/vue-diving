@@ -9,6 +9,8 @@
     <Footer />
     <Copyright />
     <SocialMedia />
+    <ShoppingCart @click.native="openDrawer" />
+    <ShoppingDrawer ref="drawer" />
   </div>
 </template>
 
@@ -17,13 +19,22 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Copyright from './components/Copyright'
 import SocialMedia from './components/SocialMedia'
+import ShoppingCart from './components/ShoppingCart'
+import ShoppingDrawer from './components/ShoppingDrawer'
 export default {
   name: 'App',
   components: {
     Navbar,
     Footer,
     Copyright,
-    SocialMedia
+    SocialMedia,
+    ShoppingCart,
+    ShoppingDrawer
+  },
+  methods: {
+    openDrawer () {
+      this.$refs.drawer.openDrawer()
+    }
   }
 }
 </script>

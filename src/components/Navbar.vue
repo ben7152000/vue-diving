@@ -29,16 +29,16 @@
               <router-link to="/products/freediving" tag="li">自潛裝備</router-link>
             </ul>
           </router-link>
-          <router-link to="/knowledge" tag="li">
-            潛水知識
-            <ul>
-              <li>潛水玩什麼</li>
-              <li>入門開始</li>
-              <li>潛水裝備</li>
-              <li>避免潛水意外</li>
-              <li>小常識</li>
-            </ul>
-          </router-link>
+<!--          <router-link to="/knowledge" tag="li">-->
+<!--            潛水知識-->
+<!--            <ul>-->
+<!--              <li>潛水玩什麼</li>-->
+<!--              <li>入門開始</li>-->
+<!--              <li>潛水裝備</li>-->
+<!--              <li>避免潛水意外</li>-->
+<!--              <li>小常識</li>-->
+<!--            </ul>-->
+<!--          </router-link>-->
           <router-link to="/contact-us" tag="li">聯絡我們</router-link>
           <router-link to="/sign-in" tag="li">會員專區</router-link>
         </ul>

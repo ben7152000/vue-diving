@@ -88,9 +88,12 @@
 
   <div class="container">
     <div class="apply">
-      <span>前往報名</span>
+      <el-button @click.prevent.stop="handleOpenDialog">前往報名</el-button>
     </div>
   </div>
+
+  <!-- 報名彈窗 -->
+  <AddToCartDialog ref="dialog"/>
 
 </section>
 </template>
@@ -101,6 +104,7 @@ import Subtitle from '../components/Subtitle'
 import CourseBanner from '../components/CourseBanner'
 import CourseCard from '../components/CourseCard'
 import CourseAlbum from '../components/CourseAlbum'
+import AddToCartDialog from '../components/AddToCartDialog'
 export default {
   name: 'CoursePage',
   components: {
@@ -108,7 +112,13 @@ export default {
     Subtitle,
     CourseBanner,
     CourseCard,
-    CourseAlbum
+    CourseAlbum,
+    AddToCartDialog
+  },
+  methods: {
+    handleOpenDialog () {
+      this.$refs.dialog.handleOpen()
+    }
   }
 }
 </script>
@@ -212,8 +222,7 @@ img {
 
 .apply {
   text-align: center;
-  padding: 64px 0 0;
-  > span {
+  .el-button {
     cursor: pointer;
     margin-top: 64px;
     color: #fff;

@@ -49,6 +49,7 @@ export default {
   flex: 1;
   height: 500px;
   position: relative;
+  left: 30px;
   > img {
     height: 100%;
     object-fit: cover;

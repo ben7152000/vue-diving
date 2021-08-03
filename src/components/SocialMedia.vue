@@ -1,6 +1,5 @@
 <template>
   <div class="social-media">
-    <div class="icons">
       <div class="icon">
         <font-awesome-icon :icon="['fab','line']" />
       </div>
@@ -10,7 +9,6 @@
       <div class="icon">
         <font-awesome-icon :icon="['fab','facebook-square']" />
       </div>
-    </div>
   </div>
 </template>
 
@@ -27,8 +25,7 @@ export default {
   top: 20%;
 }
 
-.icons {
-  > .icon {
+  .icon {
     margin: 16px 0;
     font-size: 1.8rem;
     width: 60px;
@@ -53,5 +50,5 @@ export default {
       }
     }
   }
-}
+
 </style>

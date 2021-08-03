@@ -29,6 +29,7 @@ export default {
 <style lang="scss" scoped>
 .row {
   display: flex;
+  position: relative;
   > .left {
     width: 60%;
     > .img {
@@ -36,16 +37,34 @@ export default {
     }
   }
   > .right {
+    width: 55%;
+    background: rgba(255, 255, 255, .8);
     position: absolute;
-    right: 0;
-    top: 50%;
-    background: #fff;
-    opacity: .3;
+    height: 500px;
+    left: 45%;
+    top: 20%;
+    padding: 16px;
     > .txt {
-      height: 500px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
       color: #000;
-      z-index: 3;
-
+      border: 1px solid #999;
+      > h2 {
+        font-size: 2rem;
+      }
+      > h4 {
+        font-size: 1.5rem;
+        padding: 16px 0;
+      }
+      > p {
+        font-size: 1.2rem;
+        padding: 0 32px;
+        text-align: center;
+        line-height: 2;
+      }
     }
   }
 }

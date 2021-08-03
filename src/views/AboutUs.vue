@@ -1,7 +1,9 @@
 <template>
   <section>
+
     <Breadcrumb :name="isShowWay ? '龍洞岬介紹' : '服務項目'"/>
     <Subtitle :subtitle="isShowWay ? '龍洞岬介紹' : '服務項目'"/>
+
     <section>
       <div class="container">
         <div class="row">
@@ -10,7 +12,23 @@
         </div>
       </div>
     </section>
-    <AboutUsIntro />
+
+    <div v-if="isShowWay">
+
+      <AboutUsIntro />
+
+      <section>
+        <div class="container">
+          <h2>龍洞岬這兒到底有哪些優勢呢？</h2>
+        </div>
+      </section>
+
+      <AboutUsCard />
+
+    </div>
+
+    <ServiceItem v-else />
+
   </section>
 </template>
 
@@ -18,12 +36,16 @@
 import Breadcrumb from '../components/Breadcrumb'
 import Subtitle from '../components/Subtitle'
 import AboutUsIntro from '../components/AboutUsIntro'
+import AboutUsCard from '../components/AboutUsCard'
+import ServiceItem from '../components/ServiceItem'
 export default {
   name: 'AboutUs',
   components: {
     Breadcrumb,
     Subtitle,
-    AboutUsIntro
+    AboutUsIntro,
+    AboutUsCard,
+    ServiceItem
   },
   data () {
     return {
@@ -54,5 +76,12 @@ export default {
       border-bottom: 4px solid #E37E0C;
     }
   }
+}
+
+h2 {
+  text-align: center;
+  padding: 64px;
+  color: #fff;
+  font-size: 3rem;
 }
 </style>
