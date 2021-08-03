@@ -38,11 +38,6 @@ export default new VueRouter({
       component: () => import('../views/Product')
     },
     {
-      path: '/knowledge',
-      name: 'Knowledge',
-      component: () => import('../views/Knowledge')
-    },
-    {
       path: '/contact-us',
       name: 'Contact-us',
       component: () => import('../views/ContactUs')
@@ -61,6 +56,11 @@ export default new VueRouter({
       path: '/member',
       name: 'Member',
       component: () => import('../views/Member')
+    },
+    {
+      path: '/checkout',
+      name: 'Checkout',
+      component: () => import('../views/Checkout')
     },
     {
       path: '*',

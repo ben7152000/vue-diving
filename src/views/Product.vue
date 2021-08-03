@@ -15,63 +15,21 @@
           </div>
           <div class="right">
             <div class="info" v-if="$route.path === '/products/freediving'">
-              <div class="card">
+              <div class="card" v-for="freediving in goods.freediving" :key="freediving.id">
                 <div class="img">
-                  <img src="../static/Product/freediving-2.jpeg" alt="">
+                  <img :src="require('../static/Good/'+freediving.img)" :alt="freediving.name">
                 </div>
-                <h4>長蛙鞋</h4>
-                <p>NT 100</p>
-              </div>
-              <div class="card">
-                <div class="img">
-                  <img src="../static/Product/freediving-2.jpeg" alt="">
-                </div>
-                <h4>長蛙鞋</h4>
-                <p>NT 100</p>
-              </div>
-              <div class="card">
-                <div class="img">
-                  <img src="../static/Product/freediving-2.jpeg" alt="">
-                </div>
-                <h4>長蛙鞋</h4>
-                <p>NT 100</p>
-              </div>
-              <div class="card">
-                <div class="img">
-                  <img src="../static/Product/freediving-2.jpeg" alt="">
-                </div>
-                <h4>長蛙鞋</h4>
-                <p>NT 100</p>
+                <h4>{{ freediving.name }}</h4>
+                <p>NT {{ freediving.price }}</p>
               </div>
             </div>
             <div class="info" v-if="$route.path === '/products/snorkeling'">
-              <div class="card">
+              <div class="card" v-for="snorkeling in goods.snorkeling" :key="snorkeling.id">
                 <div class="img">
-                  <img src="../static/Product/snorkeling-2.jpeg" alt="">
+                  <img :src="require('../static/Good/'+snorkeling.img)" :alt="snorkeling.name">
                 </div>
-                <h4>一般面鏡</h4>
-                <p>NT 70</p>
-              </div>
-              <div class="card">
-                <div class="img">
-                  <img src="../static/Product/snorkeling-2.jpeg" alt="">
-                </div>
-                <h4>一般面鏡</h4>
-                <p>NT 70</p>
-              </div>
-              <div class="card">
-                <div class="img">
-                  <img src="../static/Product/snorkeling-2.jpeg" alt="">
-                </div>
-                <h4>一般面鏡</h4>
-                <p>NT 70</p>
-              </div>
-              <div class="card">
-                <div class="img">
-                  <img src="../static/Product/snorkeling-2.jpeg" alt="">
-                </div>
-                <h4>一般面鏡</h4>
-                <p>NT 70</p>
+                <h4>{{ snorkeling.name }}</h4>
+                <p>NT {{ snorkeling.price }}</p>
               </div>
             </div>
           </div>
@@ -84,11 +42,22 @@
 <script>
 import Breadcrumb from '../components/Breadcrumb'
 import Subtitle from '../components/Subtitle'
+import { mapState } from 'vuex'
+
 export default {
   name: 'Product',
   components: {
     Breadcrumb,
     Subtitle
+  },
+  mounted () {
+    this.$store.dispatch('goodsAbout/getGoodInfo')
+      .then(res => {
+        console.log(res)
+      })
+  },
+  computed: {
+    ...mapState('goodsAbout', ['goods'])
   }
 }
 </script>
@@ -136,10 +105,10 @@ export default {
   margin: 0 16px 32px;
   color: #fff;
   > .img {
-    width: 100%;
+    height: 350px;
     > img {
       width: 100%;
-      object-fit: cover;
+      height: 100%;
     }
   }
   > h4, p {

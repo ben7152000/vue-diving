@@ -9,30 +9,30 @@
         <p>龍洞岬提供專屬的臨岸沖水區，臨海帳篷休息區，就是要讓美美的您，與我們一同輕鬆自在的享受，大自然給予我們的美好。</p>
       </div>
       <div class="img">
-        <img src="../static/Course/course-1.jpeg" alt="">
+        <img src="../static/Course/course-2.jpeg" alt="">
       </div>
     </div>
     <div class="row">
       <div class="img">
-        <img src="../static/Course/course-1.jpeg" alt="">
+        <img src="../static/Course/course-3.jpeg" alt="">
       </div>
       <div class="img">
-        <img src="../static/Course/course-1.jpeg" alt="">
+        <img src="../static/Course/course-4.jpeg" alt="">
       </div>
       <div class="img">
-        <img src="../static/Course/course-1.jpeg" alt="">
+        <img src="../static/Course/course-5.jpeg" alt="">
       </div>
     </div>
     <div class="row">
       <div class="img">
-        <img src="../static/Course/course-1.jpeg" alt="">
+        <img src="../static/Course/course-6.jpeg" alt="">
       </div>
       <div class="txt">
         <h4>拋開煩惱盡情享受</h4>
         <p>完善的保險制度以及水上救援，讓您在美好的假期，盡情釋放自己，享受海洋給您的滿滿正能量。</p>
       </div>
       <div class="img">
-        <img src="../static/Course/course-1.jpeg" alt="">
+        <img src="../static/Course/course-7.jpeg" alt="">
       </div>
     </div>
   </div>
@@ -53,6 +53,7 @@ export default {
   justify-content: space-between;
   .img{
     flex: 1;
+    height: 400px;
   }
   .txt {
     flex: 1;

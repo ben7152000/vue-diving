@@ -1,0 +1,188 @@
+{
+  "goods": {
+    "freediving": [
+      {
+        "id": 1,
+        "name": "自潛面鏡",
+        "price": 100,
+        "img": "freediving-1.jpeg"
+      },
+      {
+        "id": 2,
+        "name": "自潛呼吸管",
+        "price": 40,
+        "img": "freediving-2.jpeg"
+      },
+      {
+        "id": 3,
+        "name": "中蛙鞋",
+        "price": 180,
+        "img": "freediving-3.jpeg"
+      },
+      {
+        "id": 4,
+        "name": "長蛙鞋",
+        "price": 210,
+        "img": "freediving-4.jpeg"
+      },
+      {
+        "id": 5,
+        "name": "自潛防寒衣",
+        "price": 300,
+        "img": "freediving-5.jpeg"
+      },
+      {
+        "id": 6,
+        "name": "安全繫繩",
+        "price": 100,
+        "img": "freediving-6.jpeg"
+      },
+      {
+        "id": 7,
+        "name": "浮球",
+        "price": 300,
+        "img": "freediving-7.jpeg"
+      },
+      {
+        "id": 8,
+        "name": "導繩",
+        "price": 80,
+        "img": "freediving-8.jpeg"
+      },
+      {
+        "id": 9,
+        "name": "底鉛",
+        "price": 70,
+        "img": "freediving-9.jpeg"
+      },
+      {
+        "id": 10,
+        "name": "鉛帶",
+        "price": 60,
+        "img": "freediving-10.jpeg"
+      },
+      {
+        "id": 11,
+        "name": "鉛塊",
+        "price": 20,
+        "img": "freediving-11.jpeg"
+      }
+    ],
+    "snorkeling": [
+      {
+        "id": 1,
+        "name": "一般蛙鏡",
+        "price": 70,
+        "img": "snorkeling-1.jpeg"
+      },
+      {
+        "id": 2,
+        "name": "有度蛙鏡",
+        "price": 100,
+        "img": "snorkeling-1.jpeg"
+      },
+      {
+        "id": 3,
+        "name": "泳鏡",
+        "price": 50,
+        "img": "snorkeling-2.jpeg"
+      },
+      {
+        "id": 4,
+        "name": "救生衣",
+        "price": 60,
+        "img": "snorkeling-3.jpeg"
+      },
+      {
+        "id": 5,
+        "name": "浮標",
+        "price": 60,
+        "img": "snorkeling-4.png"
+      },
+      {
+        "id": 6,
+        "name": "浮板",
+        "price": 60,
+        "img": "snorkeling-5.jpeg"
+      },
+      {
+        "id": 7,
+        "name": "救生圈",
+        "price": 60,
+        "img": "snorkeling-6.jpeg"
+      },
+      {
+        "id": 8,
+        "name": "防滑鞋",
+        "price": 50,
+        "img": "snorkeling-7.jpeg"
+      },
+      {
+        "id": 9,
+        "name": "套腳蛙鞋",
+        "price": 100,
+        "img": "snorkeling-8.jpeg"
+      },
+      {
+        "id": 10,
+        "name": "套鞋蛙鞋",
+        "price": 100,
+        "img": "snorkeling-9.jpeg"
+      },
+      {
+        "id": 11,
+        "name": "水母上衣",
+        "price": 100,
+        "img": "snorkeling-10.jpeg"
+      },
+      {
+        "id": 12,
+        "name": "水母褲",
+        "price": 100,
+        "img": "snorkeling-11.jpeg"
+      },
+      {
+        "id": 13,
+        "name": "防寒上衣",
+        "price": 130,
+        "img": "snorkeling-12.jpeg"
+      },
+      {
+        "id": 14,
+        "name": "防寒褲",
+        "price": 120,
+        "img": "snorkeling-13.jpeg"
+      },
+      {
+        "id": 15,
+        "name": "連身防寒衣",
+        "price": 150,
+        "img": "snorkeling-14.jpeg"
+      },
+      {
+        "id": 16,
+        "name": "水母上衣 防寒褲",
+        "price": 200,
+        "img": "snorkeling-15.jpeg"
+      },
+      {
+        "id": 17,
+        "name": "水母衣褲",
+        "price": 160,
+        "img": "snorkeling-16.jpeg"
+      },
+      {
+        "id": 18,
+        "name": "陽傘(大)",
+        "price": 500,
+        "img": "snorkeling-17.png"
+      },
+      {
+        "id": 19,
+        "name": "陽傘(小)",
+        "price": 300,
+        "img": "snorkeling-17.png"
+      }
+    ]
+  }
+}
