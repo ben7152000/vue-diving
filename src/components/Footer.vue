@@ -13,10 +13,10 @@
           <li>
             執照課程
             <ul>
-              <li>體驗自由潛水</li>
-              <li>AIDA 1 初級自由潛水</li>
-              <li>AIDA 2 進階自由潛水</li>
-              <li>AIDA 3 專業自由潛水</li>
+              <router-link to="/courses-page/experience" tag="li">體驗自由潛水</router-link>
+              <router-link to="/courses-page/aida-1" tag="li">AIDA 1 初級自由潛水</router-link>
+              <router-link to="/courses-page/aida-2" tag="li">AIDA 2 進階自由潛水</router-link>
+              <router-link to="/courses-page/aida-3" tag="li">AIDA 3 專業自由潛水</router-link>
             </ul>
           </li>
           <li>

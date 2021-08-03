@@ -39,6 +39,7 @@ export default {
     background: #242323;
     transition: color .5s ease, background-color .5s ease;
     color: darken(#fff, 30%);
+    cursor: pointer;
     &:hover {
       background: #fff;
       &:nth-child(1) {

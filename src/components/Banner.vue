@@ -6,8 +6,8 @@
       <h2>龍洞岬裝備中心</h2>
       <h4>跨出冒險的第一步</h4>
       <div class="banner-button">
-        <a href="/">了解更多</a>
-        <a href="/">立即報名</a>
+        <router-link to="/about-us">了解更多</router-link>
+        <router-link to="/courses-page">立即報名</router-link>
       </div>
     </div>
   </div>

@@ -18,6 +18,16 @@ export default new VueRouter({
       component: () => import('../views/AboutUs')
     },
     {
+      path: '/courses-page',
+      name: 'CoursesPage',
+      component: () => import('../views/CoursesPage')
+    },
+    {
+      path: '/courses-page/:id',
+      name: 'CoursePage',
+      component: () => import('../views/CoursePage')
+    },
+    {
       path: '/products',
       name: 'Products',
       component: () => import('../views/Products')
