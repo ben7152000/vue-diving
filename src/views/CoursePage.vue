@@ -103,7 +103,7 @@
   </div>
 
   <!-- 報名彈窗 -->
-  <AddToCartDialog ref="dialog"/>
+  <AddToCartDialog ref="dialog" :filterCourse="filterCourse[0]"/>
 
 </section>
 </template>

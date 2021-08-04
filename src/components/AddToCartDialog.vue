@@ -2,11 +2,11 @@
   <el-dialog :visible.sync="dialogVisible" width="80%">
     <div class="row">
       <div class="img">
-        <img src="../static/Product/snorkeling-1.jpeg" alt="product" />
+        <img :src="require('../static/Course/'+filterCourse.img)" :alt="filterCourse.title" />
       </div>
       <div class="info">
-        <h1>AIDA 1 初級自由潛水課程</h1>
-        <p>NT$ 5000</p>
+        <h1>{{ filterCourse.title }}</h1>
+        <p>NT$ {{ filterCourse.price }}</p>
         <el-form status-icon>
           <label>日期</label>
           <el-form-item prop="date">
@@ -23,7 +23,7 @@
             <el-time-select
               :picker-options="{
                   start: '07:00',
-                  step: '02:00',
+                  step: '03:00',
                   end: '15:00',
                 }"
               placeholder="請選擇時段"
@@ -48,6 +48,12 @@
 <script>
 export default {
   name: 'AddToCartDialog',
+  props: {
+    filterCourse: {
+      type: Object,
+      require: true
+    }
+  },
   data () {
     return {
       dialogVisible: false

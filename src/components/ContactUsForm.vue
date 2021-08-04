@@ -2,29 +2,50 @@
   <section>
     <div class="container">
       <div class="row">
-        <form>
+        <el-form @submit.prevent="submitAboutUsForm(formInfo)" novalidate ref="formInfo" :model="formInfo" :rules="rule">
           <div class="form-info">
             <div class="input-group">
               <div class="input">
                 <label for="name">姓名 *</label><br>
-                <input type="text" id="name" placeholder="請輸入姓名 ...">
+                <el-form-item prop="name">
+                  <el-input
+                    type="text"
+                    id="name"
+                    placeholder="請輸入姓名 ..."
+                    v-model="formInfo.name"
+                  />
+                </el-form-item>
               </div>
               <div class="input">
                 <label for="phone">聯絡電話</label><br>
-                <input type="tel" id="phone" placeholder="0915-123-456...">
+                <input
+                  type="tel"
+                  id="phone"
+                  placeholder="0915-123-456..."
+                  v-model="formInfo.tel"
+                >
               </div>
               <div class="input">
                 <label for="email">電子信箱 *</label><br>
-                <input type="email" id="email" placeholder="admin@gmail.com ...">
+                <input
+                  type="email"
+                  id="email"
+                  placeholder="admin@gmail.com ..."
+                  v-model="formInfo.email"
+                >
               </div>
             </div>
             <div class="textarea">
               <label for="content">諮詢內容 *</label><br>
-              <textarea id="content" placeholder="請輸入內容 ..." />
+              <textarea
+                id="content"
+                placeholder="請輸入內容 ..."
+                v-model="formInfo.desc"
+              />
             </div>
           </div>
           <button>確認送出</button>
-        </form>
+        </el-form>
       </div>
     </div>
   </section>
@@ -32,12 +53,47 @@
 
 <script>
 export default {
-  name: 'ContactUsForm'
+  name: 'ContactUsForm',
+  data () {
+    return {
+      formInfo: {
+        name: '',
+        tel: '',
+        email: '',
+        desc: ''
+      },
+      rule: {
+        name: [
+          { required: true, message: '请输入姓名', trigger: 'blur' }
+        ]
+      }
+    }
+  },
+  methods: {
+    submitAboutUsForm (formName) {
+      this.$refs.formInfo.validate(valid => {
+        if (valid) {
+          this.$notify({
+            title: '成功',
+            message: '感謝你寶貴的意見',
+            type: 'success'
+          })
+        } else {
+          this.$notify({
+            title: '失敗',
+            message: '表單錯誤',
+            type: 'error'
+          })
+          return false
+        }
+      })
+    }
+  }
 }
 </script>
 
 <style lang="scss" scoped>
-  form {
+form {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -53,6 +109,13 @@ export default {
         margin-bottom: 32px;
         > .input {
           width: 30%;
+          > span {
+            color: #b31414;
+            display: inline-block;
+            padding: 16px 0 0;
+            font-size: 1.2rem;
+            font-weight: 700;
+          }
           > input {
             width: 100%;
             height: 40px;
@@ -71,6 +134,13 @@ export default {
     }
   }
 
+::v-deep .el-input__inner {
+  background: lighten(#000, 30%);
+  text-align: center;
+  border-color: #c0c4cc;
+  color:#000
+}
+
 label {
   font-size: 1.4rem;
   font-weight: 700;
@@ -78,7 +148,8 @@ label {
   display: inline-block;
   margin-bottom: 8px;
 }
-  textarea {
+
+textarea {
     width: 100%;
     height: 300px;
     background: lighten(#000, 30%);
@@ -92,7 +163,7 @@ label {
     }
   }
 
-  button {
+button {
     cursor: pointer;
     margin-top: 64px;
     color: #fff;
