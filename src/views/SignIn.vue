@@ -6,19 +6,17 @@
 
     <section>
       <div class="container">
-          <form>
-            <div class="input">
-              <label for="account">會員帳號</label>
-              <input type="tel" id="account" placeholder="請填入手機號碼 ...">
-            </div>
-            <div class="input">
-              <label for="password">會員密碼</label>
-              <input type="tel" id="password" placeholder="請填入密碼 ...">
-            </div>
+          <el-form :model="formAccount" status-icon :rules="rules" ref="formAccount">
+            <el-form-item label="會員帳號" prop="account">
+              <el-input type="tel" id="account" placeholder="請填入手機號碼 ..." v-model="formAccount.account" />
+            </el-form-item>
+            <el-form-item label="會員密碼" prop="password">
+              <el-input type="tel" id="password" placeholder="請填入密碼 ..." v-model="formAccount.password"/>
+            </el-form-item>
             <p>溫馨提醒：未註冊帳號的手機，登入時將會自動註冊</p>
             <router-link to="/forget-password">忘記密碼？</router-link>
-            <button>確認送出</button>
-          </form>
+            <el-button @click="submitHandler('formAccount')">確認送出</el-button>
+          </el-form>
       </div>
     </section>
 
@@ -34,33 +32,57 @@ export default {
   components: {
     Breadcrumb,
     Subtitle
+  },
+  data () {
+    return {
+      formAccount: {
+        account: '',
+        password: ''
+      },
+      rules: {
+        account: [
+          {
+            required: true,
+            message: '此欄為必填',
+            trigger: 'blur'
+          },
+          {
+            pattern: /^09\d{8}$/,
+            message: '格式不符，須為 10 碼數字且不含符號（eg. 0912345678）',
+            trigger: 'blur'
+          }
+        ],
+        password: [
+          {
+            required: true,
+            message: '此欄為必填',
+            trigger: 'blur'
+          }
+        ]
+      }
+    }
+  },
+  methods: {
+    submitHandler (formName) {
+      this.$refs[formName].validate((valid) => {
+        if (valid) {
+          this.$router.push('/member')
+          this.$message('成功登入')
+        } else {
+          console.log('error submit!!')
+          return false
+        }
+      })
+    }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-form {
+.el-form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  > .input {
-    display: flex;
-    align-items: center;
-    padding: 24px;
-    > input {
-      width: 600px;
-      height: 50px;
-      background: lighten(#000, 30%);
-      border: 1px solid #fff;
-      font-size: 1.2rem;
-      padding-left: 16px;
-      letter-spacing: 1.5px;
-      color: #fff;
-      &:valid, &:focus, &:active {
-        outline: none;
-      }
-    }
-  }
   > p {
     color: #fff;
     font-size: 1.2rem;
@@ -73,7 +95,31 @@ form {
   }
 }
 
-label {
+::v-deep .el-form-item {
+  display: flex;
+  align-items: center;
+  padding: 24px;
+}
+
+::v-deep .el-form-item__content {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+::v-deep .el-input__inner {
+  width: 600px;
+  height: 50px;
+  background: lighten(#000, 30%);
+  border: 1px solid #fff;
+  font-size: 1.2rem;
+  padding-left: 16px;
+  letter-spacing: 1.5px;
+  color: #fff;
+}
+
+::v-deep .el-form-item__label {
+  width: 200px;
   font-size: 1.4rem;
   font-weight: 700;
   color: #fff;
@@ -81,7 +127,7 @@ label {
   margin-right: 32px;
 }
 
-button {
+.el-button {
   cursor: pointer;
   margin-top: 64px;
   color: #fff;

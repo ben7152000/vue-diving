@@ -25,10 +25,7 @@ export default new VueRouter({
     {
       path: '/courses-page/:id',
       name: 'CoursePage',
-      component: () => import('../views/CoursePage'),
-      props ({ params: { id } }) {
-        return { id }
-      }
+      component: () => import('../views/CoursePage')
     },
     {
       path: '/products',

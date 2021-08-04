@@ -2,12 +2,10 @@
   <section>
     <div class="container">
       <div class="row">
-        <el-form @submit.prevent="submitAboutUsForm(formInfo)" novalidate ref="formInfo" :model="formInfo" :rules="rule">
+        <el-form :model="formInfo" :rules="rules" ref="formInfo">
           <div class="form-info">
             <div class="input-group">
-              <div class="input">
-                <label for="name">姓名 *</label><br>
-                <el-form-item prop="name">
+                <el-form-item prop="name" label="姓名" class="input">
                   <el-input
                     type="text"
                     id="name"
@@ -15,36 +13,33 @@
                     v-model="formInfo.name"
                   />
                 </el-form-item>
-              </div>
-              <div class="input">
-                <label for="phone">聯絡電話</label><br>
-                <input
-                  type="tel"
+              <el-form-item prop="tel" label="聯絡電話" class="input">
+                <el-input
+                  type="text"
                   id="phone"
-                  placeholder="0915-123-456..."
+                  placeholder="0915-123-456 ..."
                   v-model="formInfo.tel"
-                >
-              </div>
-              <div class="input">
-                <label for="email">電子信箱 *</label><br>
-                <input
+                />
+              </el-form-item>
+              <el-form-item prop="email" label="電子信箱" class="input">
+                <el-input
                   type="email"
                   id="email"
                   placeholder="admin@gmail.com ..."
                   v-model="formInfo.email"
-                >
-              </div>
+                />
+              </el-form-item>
             </div>
-            <div class="textarea">
-              <label for="content">諮詢內容 *</label><br>
-              <textarea
+            <el-form-item class="textarea" prop="desc" label="諮詢內容">
+              <el-input
+                type="textarea"
                 id="content"
                 placeholder="請輸入內容 ..."
                 v-model="formInfo.desc"
               />
-            </div>
+            </el-form-item>
           </div>
-          <button>確認送出</button>
+          <el-button @click.prevent="submitHandler('formInfo')">確認送出</el-button>
         </el-form>
       </div>
     </div>
@@ -62,28 +57,57 @@ export default {
         email: '',
         desc: ''
       },
-      rule: {
+      rules: {
         name: [
-          { required: true, message: '请输入姓名', trigger: 'blur' }
+          {
+            required: true,
+            message: '此欄為必填',
+            trigger: 'blur'
+          }
+        ],
+        tel: [
+          {
+            pattern: /^09\d{8}$/,
+            message: '格式不符，須為 10 碼數字且不含符號（eg. 0912345678）',
+            trigger: 'blur'
+          }
+        ],
+        email: [
+          {
+            required: true,
+            message: '此欄為必填',
+            trigger: 'blur'
+          },
+          {
+            type: 'email',
+            message: 'Email 格式不正確',
+            trigger: 'blur'
+          }
+        ],
+        desc: [
+          {
+            required: true,
+            message: '此欄為必填',
+            trigger: 'blur'
+          }
         ]
       }
     }
   },
   methods: {
-    submitAboutUsForm (formName) {
-      this.$refs.formInfo.validate(valid => {
+    submitHandler (formName) {
+      this.$refs[formName].validate(valid => {
         if (valid) {
           this.$notify({
             title: '成功',
             message: '感謝你寶貴的意見',
             type: 'success'
           })
+          this.formInfo.name = ''
+          this.formInfo.tel = ''
+          this.formInfo.email = ''
+          this.formInfo.desc = ''
         } else {
-          this.$notify({
-            title: '失敗',
-            message: '表單錯誤',
-            type: 'error'
-          })
           return false
         }
       })
@@ -93,63 +117,59 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-form {
+.el-form {
     display: flex;
     align-items: center;
     flex-direction: column;
-    > .form-info {
-      border: 1px solid #fff;
+  .form-info {
+    border: 1px solid #fff;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 64px 48px;
+    .input-group {
       display: flex;
-      flex-direction: column;
-      width: 100%;
-      padding: 64px 48px;
-      > .input-group {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 32px;
-        > .input {
-          width: 30%;
-          > span {
-            color: #b31414;
-            display: inline-block;
-            padding: 16px 0 0;
-            font-size: 1.2rem;
-            font-weight: 700;
-          }
-          > input {
-            width: 100%;
-            height: 40px;
-            background: lighten(#000, 30%);
-            border: 1px solid #fff;
-            font-size: 1.2rem;
-            padding-left: 16px;
-            letter-spacing: 1.5px;
-            color: #fff;
-            &:valid, &:focus, &:active {
-              outline: none;
-            }
-          }
-        }
+      justify-content: space-between;
+      > .input {
+        width: 30%;
       }
     }
   }
-
-::v-deep .el-input__inner {
-  background: lighten(#000, 30%);
-  text-align: center;
-  border-color: #c0c4cc;
-  color:#000
 }
 
-label {
+::v-deep .el-form-item {
+  display: flex;
+  flex-direction: column;
+  padding: 24px 0;
+}
+
+::v-deep .el-form-item__content {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+::v-deep .el-form-item__label {
+  text-align: start;
+  margin-bottom: 8px;
   font-size: 1.4rem;
   font-weight: 700;
   color: #fff;
   display: inline-block;
-  margin-bottom: 8px;
 }
 
-textarea {
+::v-deep .el-input__inner {
+  width: 100%;
+  height: 50px;
+  background: lighten(#000, 30%);
+  border: 1px solid #fff;
+  font-size: 1.2rem;
+  padding-left: 16px;
+  letter-spacing: 1.5px;
+  color: #fff;
+}
+
+::v-deep .el-textarea__inner {
     width: 100%;
     height: 300px;
     background: lighten(#000, 30%);
@@ -163,20 +183,20 @@ textarea {
     }
   }
 
-button {
-    cursor: pointer;
-    margin-top: 64px;
-    color: #fff;
-    font-size: 1.3rem;
-    padding: 16px 32px;
-    border-radius: 16px;
-    outline: none;
-    border: none;
-    background: #E37E0C;
-    transition: color .5s ease,background-color .5s ease;
-    &:hover {
-      color: #E37E0C;
-      background: #fff;
-    }
+.el-button {
+  cursor: pointer;
+  margin-top: 64px;
+  color: #fff;
+  font-size: 1.3rem;
+  padding: 16px 32px;
+  border-radius: 16px;
+  outline: none;
+  border: none;
+  background: #E37E0C;
+  transition: color .5s ease,background-color .5s ease;
+  &:hover {
+    color: #E37E0C;
+    background: #fff;
   }
+}
 </style>

@@ -6,13 +6,7 @@
           <a href="/">LOGO</a>
         </h1>
         <ul>
-          <router-link to="/about-us" tag="li">
-            關於龍洞岬
-            <ul>
-              <li>龍洞岬介紹</li>
-              <li>服務項目</li>
-            </ul>
-          </router-link>
+          <router-link to="/about-us" tag="li">關於龍洞岬</router-link>
           <li>
             <router-link to="/courses-page">執照課程</router-link>
             <ul>
