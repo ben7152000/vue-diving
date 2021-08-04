@@ -12,12 +12,12 @@ export default {
       const { data } = await axios.get('/goods')
       if (data.code === 200) {
         const goods = data.data
-        commit('RECEIVE_INFO', { goods })
+        commit('RECEIVE_GOODS_INFO', { goods })
       }
     }
   },
   mutations: {
-    RECEIVE_INFO (state, { goods }) {
+    RECEIVE_GOODS_INFO (state, { goods }) {
       state.goods = goods
     }
   }

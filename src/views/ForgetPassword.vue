@@ -1,7 +1,9 @@
 <template>
   <section>
+
     <Breadcrumb name="忘記密碼"/>
     <Subtitle subtitle="忘記密碼"/>
+
     <section>
       <div class="container">
         <div class="row">
@@ -15,6 +17,7 @@
         </div>
       </div>
     </section>
+
   </section>
 </template>
 

@@ -1,7 +1,9 @@
 <template>
   <section>
+
     <Breadcrumb :name="isShowWay ? '會員專區' : '會員資料修改'"/>
     <Subtitle subtitle="會員專區"/>
+
     <section>
       <div class="container">
         <div class="row">
@@ -10,8 +12,11 @@
         </div>
       </div>
     </section>
+
     <CourseOrder v-if="isShowWay"/>
+
     <MemberFix v-else/>
+
   </section>
 </template>
 

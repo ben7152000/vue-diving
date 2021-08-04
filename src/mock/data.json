@@ -184,5 +184,185 @@
         "img": "snorkeling-17.png"
       }
     ]
-  }
+  },
+  "coursesList": [
+    {
+      "id": 1,
+      "title": "體驗自由潛水課程",
+      "en": "experience",
+      "img": "course-1.jpeg"
+    },
+    {
+      "id": 2,
+      "title": "AIDA 1 初級自由潛水課程",
+      "en": "aida-1",
+      "img": "course-2.jpeg"
+    },
+    {
+      "id": 3,
+      "title": "AIDA 2 進階自由潛水課程",
+      "en": "aida-2",
+      "img": "course-3.jpeg"
+    },
+    {
+      "id": 4,
+      "title": "AIDA 3 專業自由潛水課程",
+      "en": "aida-3",
+      "img": "course-4.jpeg"
+    }
+  ],
+  "courses": [
+    {
+      "id": 1,
+      "title": "體驗自由潛水課程",
+      "en": "experience",
+      "price": 800,
+      "desc": "完全不需要有壓力，帶著輕鬆的心情來玩吧！",
+      "time": "3",
+      "unit": "小時",
+      "content": [
+        "平壓練習",
+        "蛙鞋使用",
+        "裝備認知"
+      ],
+      "budgeContent": [
+        "保險費",
+        "教練費",
+        "場地費",
+        "盥洗費"
+      ],
+      "limit": "二",
+      "img": "course-1.jpeg",
+      "applyInfo": {
+        "title": "報名須知",
+        "content": [
+          {
+            "content": "參加體驗的學員日後報名課程就送 ( 自潛專用一體成型呼吸管 )",
+            "notify": "報名課程時請告知有參加過體驗"
+          }
+        ]
+      }
+    },
+    {
+      "id": 2,
+      "title": "AIDA 1 初級自由潛水課程",
+      "en": "aida-1",
+      "price": 5500,
+      "desc": "為你揭開大海的神秘面紗，讓你體驗從未體驗過的海底世界本課程將使你有信心而且安全舒適的探索水下世界。課程中將帶你瞭解與感受自由潛水與眾不同的魅力。",
+      "time": "1",
+      "unit": "天",
+      "content": [
+        "理論課程",
+        "開放海域課程"
+      ],
+      "budgeContent": [
+        "自由潛水裝備費用",
+        "保險費",
+        "AIDA 證照費"
+      ],
+      "limit": "一",
+      "img": "course-2.jpeg",
+      "applyInfo": {
+        "title": "報名須知",
+        "content": [
+          {
+            "content": "團練 -> 兩小時 350 元 ( 含教練、保險、場地、盥洗費用 )",
+            "notify": "需上過 AIDA 課程的學員"
+          },
+          {
+            "content": "補考 -> 兩小時 800 元 ( 含教練、保險、場地、盥洗費用 )，AIDA 學員皆可報名參加",
+            "notify": "如通過考試需再繳交證照費用 1000 元"
+          }
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "title": "AIDA 2 進階自由潛水課程",
+      "en": "aida-2",
+      "price": 13500,
+      "desc": "課程將針對自由潛水初學者正式進入開放海域所設計的基礎課程，建立安全潛水的基本知識與能力。所有自由潛水的進步方式，練習技巧，基礎海況分析...等，都將在課堂中一一傳授與講解。",
+      "time": "3",
+      "unit": "天",
+      "content": [
+        "室內理論課程",
+        "泳池基本技巧課程",
+        "開放水域課程"
+      ],
+      "budgeContent": [
+        "自由潛水裝備費用",
+        "保險費",
+        "泳池費",
+        "AIDA 證照費"
+      ],
+      "limit": "一",
+      "img": "course-3.jpeg",
+      "applyInfo": {
+        "title": "報名須知",
+        "content": [
+          {
+            "content": "團練 -> 兩小時 350 元 ( 含教練、保險、場地、盥洗費用 )",
+            "notify": "需上過 AIDA 課程的學員"
+          },
+          {
+            "content": "補考 -> 兩小時 800 元 ( 含教練、保險、場地、盥洗費用 )，AIDA 學員皆可報名參加",
+            "notify": "如通過考試需再繳交證照費用 1000 元"
+          }
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "title": "AIDA 3 專業自由潛水課程",
+      "en": "aida-3",
+      "price": 17000,
+      "desc": "強化下潛技巧與潛水認知進階的課程將合理運用所學到的每一個技巧，建立安全快速的進步方式與習慣，使平壓技巧與身體姿勢更佳順暢，最後身理與心理都能適應，達到每一次的下潛都能輕鬆與享受。",
+      "time": "4",
+      "unit": "天",
+      "content": [
+        "室內理論課程",
+        "泳池基本技巧課程",
+        "開放水域課程"
+      ],
+      "budgeContent": [
+        "自由潛水裝備費用",
+        "保險費",
+        "泳池費",
+        "AIDA 證照費"
+      ],
+      "limit": "一",
+      "img": "course-4.jpeg",
+      "applyInfo": {
+        "title": "報名須知",
+        "content": [
+          {
+            "content": "團練 -> 兩小時 350 元 ( 含教練、保險、場地、盥洗費用 )",
+            "notify": "需上過 AIDA 課程的學員"
+          },
+          {
+            "content": "補考 -> 兩小時 800 元 ( 含教練、保險、場地、盥洗費用 )，AIDA 學員皆可報名參加",
+            "notify": "如通過考試需再繳交證照費用 1000 元"
+          }
+        ]
+      }
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "admin",
+      "email": "admin@gmail.com",
+      "password": "password",
+      "isAdmin": "true",
+      "asscessToken": "123456"
+    },
+    {
+      "id": 2,
+      "name": "ben",
+      "email": "ben@gmail.com",
+      "password": "password",
+      "isAdmin": "false",
+      "asscessToken": "147258"
+    }
+  ]
 }

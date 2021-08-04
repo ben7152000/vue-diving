@@ -1,6 +1,6 @@
 <template>
   <div id="app" class="main-container">
-    <Navbar />
+    <Navbar/>
     <keep-alive>
       <main>
         <router-view/>
@@ -21,6 +21,7 @@ import Copyright from './components/Copyright'
 import SocialMedia from './components/SocialMedia'
 import ShoppingCart from './components/ShoppingCart'
 import ShoppingDrawer from './components/ShoppingDrawer'
+
 export default {
   name: 'App',
   components: {
@@ -30,6 +31,10 @@ export default {
     SocialMedia,
     ShoppingCart,
     ShoppingDrawer
+  },
+  created () {
+    this.$store.dispatch('coursesAbout/getCourseListInfo')
+    this.$store.dispatch('coursesAbout/getCourseInfo')
   },
   methods: {
     openDrawer () {

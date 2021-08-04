@@ -1,10 +1,12 @@
 <template>
   <section>
+
     <div class="container">
       <div class="row">
         <p>404 找不到網頁</p>
       </div>
     </div>
+
   </section>
 </template>
 

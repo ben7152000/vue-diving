@@ -1,7 +1,9 @@
 <template>
   <section>
+
     <Breadcrumb name="商品櫥窗"/>
     <Subtitle subtitle="商品櫥窗"/>
+
     <section>
       <div class="container">
         <div class="products">
@@ -28,12 +30,14 @@
         </div>
       </div>
     </section>
+
   </section>
 </template>
 
 <script>
 import Breadcrumb from '../components/Breadcrumb'
 import Subtitle from '../components/Subtitle'
+
 export default {
   name: 'Products',
   components: {

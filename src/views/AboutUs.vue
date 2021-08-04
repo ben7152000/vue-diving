@@ -38,6 +38,7 @@ import Subtitle from '../components/Subtitle'
 import AboutUsIntro from '../components/AboutUsIntro'
 import AboutUsCard from '../components/AboutUsCard'
 import ServiceItem from '../components/ServiceItem'
+
 export default {
   name: 'AboutUs',
   components: {

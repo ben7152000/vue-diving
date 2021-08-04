@@ -1,7 +1,9 @@
 <template>
   <section>
+
     <Breadcrumb name="商品櫥窗"/>
     <Subtitle subtitle="商品櫥窗"/>
+
     <section>
       <div class="container">
         <div class="row">
@@ -36,6 +38,7 @@
         </div>
       </div>
     </section>
+
   </section>
 </template>
 

@@ -1,52 +1,51 @@
 <template>
   <section>
+
     <Breadcrumb name="執照課程"/>
     <Subtitle subtitle="執照課程"/>
+
     <section>
       <div class="container">
         <div class="row">
-          <div class="card">
-            <h2>體驗自由潛水</h2>
-            <router-link to="/courses-page/experience">
-              <img src="../static/Product/freediving-1.jpeg" alt="體驗自由潛水">
+          <div class="card" v-for="course in coursesList" :key="course.id">
+            <h2>{{ course.title }}</h2>
+            <div @click="courseDetail(course.en)" class="link">
+              <img :src="require('../static/Course/'+course.img)" :alt="course.title">
               <span>了解更多</span>
-            </router-link>
-          </div>
-          <div class="card">
-            <h2>AIDA 1 初級自由潛水課程</h2>
-            <router-link to="/courses-page/aida-1">
-              <img src="../static/Product/freediving-1.jpeg" alt="AIDA 1 初級自由潛水課程">
-              <span>了解更多</span>
-            </router-link>
-          </div>
-          <div class="card">
-            <h2>AIDA 2 進階自由潛水課程</h2>
-            <router-link to="/courses-page/aida-2">
-              <img src="../static/Product/freediving-1.jpeg" alt="AIDA 2 進階自由潛水課程">
-              <span>了解更多</span>
-            </router-link>
-          </div>
-          <div class="card">
-            <h2>AIDA3 專業自由潛水課程</h2>
-            <router-link to="/courses-page/aida-3">
-              <img src="../static/Product/snorkeling-1.jpeg" alt="AIDA 3 專業自由潛水課程">
-              <span>了解更多</span>
-            </router-link>
+            </div>
           </div>
         </div>
       </div>
     </section>
+
   </section>
 </template>
 
 <script>
 import Breadcrumb from '../components/Breadcrumb'
 import Subtitle from '../components/Subtitle'
+
 export default {
   name: 'CoursesPage',
   components: {
     Breadcrumb,
     Subtitle
+  },
+  data () {
+    return {
+      coursesList: this.$store.state.coursesAbout.coursesList
+    }
+  },
+  created () {
+    this.$store.dispatch('coursesAbout/getCourseListInfo')
+  },
+  methods: {
+    courseDetail (en) {
+      this.$router.push({
+        name: 'CoursePage',
+        params: { id: en }
+      })
+    }
   }
 }
 </script>
@@ -66,10 +65,11 @@ export default {
     font-weight: 500;
     margin-bottom: 16px;
   }
-  > a {
+  > .link {
     display: inline-block;
     width: 100%;
     height: 350px;
+    cursor: pointer;
     > span {
       margin: 16px 0;
       padding: 16px 0;

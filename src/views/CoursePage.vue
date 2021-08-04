@@ -5,16 +5,16 @@
   <Subtitle subtitle="執照課程"/>
 
   <div class="container">
-    <h2>AIDA 1 初級自由潛水課程</h2>
+    <h2>{{ filterCourse[0].title }}</h2>
   </div>
 
   <section>
     <div class="container">
       <div class="row">
         <div class="img">
-          <img src="../static/Product/snorkeling-1.jpeg" alt="AIDA 1 初級自由潛水課程">
+          <img :src="require('../static/Course/'+filterCourse[0].img)" :alt="filterCourse[0].title">
         </div>
-        <p>為你揭開大海的神秘面紗，讓你體驗從未體驗過的海底世界。本課程將使你有信心而且安全舒適的探索水下世界。課程中將帶你瞭解與感受自由潛水與眾不同的魅力</p>
+        <p>{{ filterCourse[0].desc }}</p>
       </div>
     </div>
   </section>
@@ -29,7 +29,7 @@
 
   <div class="container">
     <div class="budget">
-      <p>報名費用： <span>5,500</span>元 ( 每人 )</p>
+      <p>報名費用： <span>{{ filterCourse[0].price }}</span>元 ( 每人 )</p>
     </div>
   </div>
 
@@ -44,20 +44,27 @@
       </ul>
     </div>
     <div class="intro">
-      <h3>課程費用包含</h3>
+      <h3>課程內容</h3>
       <ul>
-        <li>1. 自由潛水裝備費用</li>
-        <li>2. 保險費</li>
-        <li>3. AIDA 證照費</li>
+        <li
+          v-for="(content, index) in filterCourse[0].content"
+          :key="index"
+        >
+          {{ index + 1 }}. {{ content }}
+        </li>
       </ul>
     </div>
     <div class="intro">
-      <h3>課程內容</h3>
+      <h3>課程費用包含</h3>
       <ul>
-        <li>1. 小班制度(一人即可開班，最多四人)</li>
-        <li>2. 理論課程</li>
-        <li>3. 開放水域課程</li>
-        <li>4. 訓練時間為 <span>1</span> 天</li>
+        <li
+          v-for="(budgeContent, index) in filterCourse[0].budgeContent"
+          :key="index"
+        >
+          {{ index + 1 }}. {{ budgeContent }}
+        </li>
+        <li><span>※</span>訓練時間為 <span>{{ filterCourse[0].time }}</span>{{ filterCourse[0].unit }}</li>
+        <li><span>※</span>小班制度 ( {{ filterCourse[0].limit }}人即可成班，最多四人 )</li>
       </ul>
     </div>
   </div>
@@ -76,10 +83,13 @@
       </ul>
     </div>
     <div class="other">
-      <h3>團練及補考須知</h3>
+      <h3>{{ filterCourse[0].applyInfo.title }}</h3>
       <ul>
-        <li>1. 團練 -> 兩小時350元 (含教練、保險、場地、盥洗費用) <span>※</span> 需上過AIDA課程的學員</li>
-        <li>2. 補考 -> 兩小時800元 (含教練、保險、場地、盥洗費用)，AIDA學員皆可報名參加 <span>※</span> 如通過考試需再繳交證照費用1000元</li>
+        <li
+          v-for="(applyInfo, index) in filterCourse[0].applyInfo.content"
+          :key="index"
+        >
+          {{ index + 1 }}.{{ applyInfo.content }}<span>※</span>{{ applyInfo.notify }}</li>
       </ul>
     </div>
   </div>
@@ -105,6 +115,7 @@ import CourseBanner from '../components/CourseBanner'
 import CourseCard from '../components/CourseCard'
 import CourseAlbum from '../components/CourseAlbum'
 import AddToCartDialog from '../components/AddToCartDialog'
+
 export default {
   name: 'CoursePage',
   components: {
@@ -114,6 +125,21 @@ export default {
     CourseCard,
     CourseAlbum,
     AddToCartDialog
+  },
+  data () {
+    return {
+      courses: this.$store.state.coursesAbout.courses
+    }
+  },
+  created () {
+    this.$store.dispatch('coursesAbout/getCourseInfo')
+  },
+  computed: {
+    filterCourse (state) {
+      return state.courses.filter(i => {
+        return i.en === this.$route.params.id
+      })
+    }
   },
   methods: {
     handleOpenDialog () {
@@ -189,6 +215,7 @@ img {
         color: #cb2323;
         font-size: 1.6rem;
         font-weight: 900;
+        padding: 0 8px 0;
       }
     }
   }

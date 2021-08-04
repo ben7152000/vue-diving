@@ -1,7 +1,9 @@
 <template>
   <section>
+
     <Breadcrumb name="會員登入"/>
     <Subtitle subtitle="會員登入"/>
+
     <section>
       <div class="container">
           <form>
@@ -19,12 +21,14 @@
           </form>
       </div>
     </section>
+
   </section>
 </template>
 
 <script>
 import Breadcrumb from '../components/Breadcrumb'
 import Subtitle from '../components/Subtitle'
+
 export default {
   name: 'SignIn',
   components: {
