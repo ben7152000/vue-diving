@@ -4,7 +4,7 @@
     <div class="row">
       <div class="left">
         <div class="img">
-          <img src="../static/aboutUs-1.jpeg" alt="全方位一站式的龍洞岬裝備服務中心">
+          <img src="../../static/aboutUs-1.jpeg" alt="全方位一站式的龍洞岬裝備服務中心">
         </div>
       </div>
       <div class="right">

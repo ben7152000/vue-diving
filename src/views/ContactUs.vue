@@ -14,8 +14,8 @@
 <script>
 import Breadcrumb from '../components/Breadcrumb'
 import Subtitle from '../components/Subtitle'
-import ContactUsInfo from '../components/ContactUsInfo'
-import ContactUsForm from '../components/ContactUsForm'
+import ContactUsInfo from '../components/ContactUs/ContactUsInfo'
+import ContactUsForm from '../components/ContactUs/ContactUsForm'
 
 export default {
   name: 'ContactUs',

@@ -111,9 +111,9 @@
 <script>
 import Breadcrumb from '../components/Breadcrumb'
 import Subtitle from '../components/Subtitle'
-import CourseBanner from '../components/CourseBanner'
-import CourseCard from '../components/CourseCard'
-import CourseAlbum from '../components/CourseAlbum'
+import CourseBanner from '../components/CoursePage/CourseBanner'
+import CourseCard from '../components/CoursePage/CourseCard'
+import CourseAlbum from '../components/CoursePage/CourseAlbum'
 import AddToCartDialog from '../components/AddToCartDialog'
 
 export default {

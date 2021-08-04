@@ -4,7 +4,7 @@
       <div class="row">
         <div class="card">
           <div class="img">
-            <img src="../static/ServiceItem/service-item-1.jpeg" alt="潛水旅遊">
+            <img src="../../static/ServiceItem/service-item-1.jpeg" alt="潛水旅遊">
           </div>
           <div class="txt">
             <span>NO.1</span>
@@ -14,7 +14,7 @@
         </div>
         <div class="card">
           <div class="img">
-            <img src="../static/ServiceItem/service-item-2.jpeg" alt="裝備銷售與維修">
+            <img src="../../static/ServiceItem/service-item-2.jpeg" alt="裝備銷售與維修">
           </div>
           <div class="txt">
             <span>NO.2</span>
@@ -26,7 +26,7 @@
       <div class="row">
         <div class="card">
           <div class="img">
-            <img src="../static/ServiceItem/service-item-3.jpeg" alt="潛水旅遊">
+            <img src="../../static/ServiceItem/service-item-3.jpeg" alt="潛水旅遊">
           </div>
           <div class="txt">
             <span>NO.3</span>
@@ -36,7 +36,7 @@
         </div>
         <div class="card">
           <div class="img">
-            <img src="../static/ServiceItem/service-item-4.jpeg" alt="潛水會員">
+            <img src="../../static/ServiceItem/service-item-4.jpeg" alt="潛水會員">
           </div>
           <div class="txt">
             <span>NO.4</span>
@@ -48,7 +48,7 @@
       <div class="row">
         <div class="card">
           <div class="img">
-            <img src="../static/ServiceItem/service-item-5.jpeg" alt="絕佳地點">
+            <img src="../../static/ServiceItem/service-item-5.jpeg" alt="絕佳地點">
           </div>
           <div class="txt">
             <span>NO.5</span>
@@ -58,7 +58,7 @@
         </div>
         <div class="card">
           <div class="img">
-            <img src="../static/ServiceItem/service-item-6.jpeg" alt="後勤補給">
+            <img src="../../static/ServiceItem/service-item-6.jpeg" alt="後勤補給">
           </div>
           <div class="txt">
             <span>NO.6</span>

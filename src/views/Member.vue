@@ -23,8 +23,8 @@
 <script>
 import Breadcrumb from '../components/Breadcrumb'
 import Subtitle from '../components/Subtitle'
-import CourseOrder from '../components/CourseOrder'
-import MemberFix from '../components/MemberFix'
+import CourseOrder from '../components/Member/CourseOrder'
+import MemberFix from '../components/Member/MemberFix'
 
 export default {
   name: 'Member',

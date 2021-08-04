@@ -35,9 +35,9 @@
 <script>
 import Breadcrumb from '../components/Breadcrumb'
 import Subtitle from '../components/Subtitle'
-import AboutUsIntro from '../components/AboutUsIntro'
-import AboutUsCard from '../components/AboutUsCard'
-import ServiceItem from '../components/ServiceItem'
+import AboutUsIntro from '../components/AboutUs/AboutUsIntro'
+import AboutUsCard from '../components/AboutUs/AboutUsCard'
+import ServiceItem from '../components/AboutUs/ServiceItem'
 
 export default {
   name: 'AboutUs',
