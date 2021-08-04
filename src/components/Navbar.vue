@@ -3,7 +3,7 @@
     <div class="container">
       <div class="row">
         <h1>
-          <a href="/">LOGO</a>
+          <router-link to="/">LOGO</router-link>
         </h1>
         <ul>
           <router-link to="/about-us" tag="li">關於龍洞岬</router-link>
