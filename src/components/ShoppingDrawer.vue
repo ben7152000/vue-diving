@@ -33,7 +33,7 @@ export default {
   data () {
     return {
       drawer: false,
-      cartList: JSON.parse(localStorage.getItem('cart'))
+      cartList: JSON.parse(localStorage.getItem('cart')) || []
     }
   },
   computed: {
@@ -164,5 +164,12 @@ img {
     font-size: 1.4rem;
     cursor: pointer;
   }
+}
+
+.empty-cart {
+  padding: 0 16px;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #E37E0C;
 }
 </style>
