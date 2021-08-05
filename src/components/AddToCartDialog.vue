@@ -7,38 +7,34 @@
       <div class="info">
         <h1>{{ filterCourse.title }}</h1>
         <p>NT$ {{ filterCourse.price }}</p>
-        <el-form status-icon>
-          <label>日期</label>
-          <el-form-item prop="date">
+        <el-form status-icon ref="submitForm" :rules="rules" :model="submitForm">
+          <el-form-item prop="date" label="日期">
             <el-date-picker
               type="date"
               placeholder="請選擇日期"
               style="width: 100%"
               format="yyyy-MM-dd"
               value-format="yyyy-MM-dd"
+              v-model="submitForm.date"
+              :picker-options="pickerOptions"
             />
           </el-form-item>
-          <label>時段</label>
-          <el-form-item prop="time">
+          <el-form-item prop="time" label="時段">
             <el-time-select
-              :picker-options="{
-                  start: '07:00',
-                  step: '03:00',
-                  end: '15:00',
-                }"
+              v-model="submitForm.time" :picker-options="{start: '07:00',step: '03:00',end: '16:00'}"
               placeholder="請選擇時段"
               style="width: 100%"
             />
           </el-form-item>
-          <el-form-item >
-            <el-select placeholder="請選擇報名人數" style="width: 100%" value="123">
-              <el-option label="num" value="num">選購 1 人</el-option>
+          <el-form-item label="人數">
+            <el-select placeholder="請選擇報名人數" style="width: 100%" v-model="submitForm.selectedNum">
+              <el-option :label="num" :value="num" v-for="num in 10" :key="num">選購 {{ num }} 人</el-option>
             </el-select>
           </el-form-item>
         </el-form>
-        <div class="btn-wrapper">
-          <button>加入購物車</button>
-          <button>立即購買</button>
+        <div class="btn-group">
+          <el-button @click="addCartForm('submitForm')">加入購物車</el-button>
+          <el-button @click="buyNowHandler">立即購買</el-button>
         </div>
       </div>
     </div>
@@ -56,12 +52,82 @@ export default {
   },
   data () {
     return {
-      dialogVisible: false
+      dialogVisible: false,
+      course: {},
+      submitForm: {
+        date: '',
+        time: '',
+        selectedNum: 1
+      },
+      pickerOptions: {
+        disabledDate: time => {
+          return time.getTime() < Date.now()
+        }
+      },
+      rules: {
+        date: [
+          {
+            required: true,
+            message: '此欄為必填',
+            trigger: 'blur'
+          }
+        ],
+        time: [
+          {
+            required: true,
+            message: '此欄為必填',
+            trigger: 'blur'
+          }
+        ]
+      }
     }
   },
   methods: {
     handleOpen () {
       this.dialogVisible = true
+    },
+    addCartForm (formName) {
+      this.$refs[formName].validate(valid => {
+        if (valid) {
+          this.addToCartHandler()
+        } else {
+          return false
+        }
+      })
+    },
+    addToCartHandler () {
+      // 複製一份
+      this.course = this.filterCourse
+
+      // 購物車資料
+      const cartData = {
+        courseId: this.course.id,
+        title: this.course.title,
+        price: this.course.price,
+        img: this.course.img,
+        qty: this.submitForm.selectedNum,
+        date: this.submitForm.date,
+        time: this.submitForm.time
+      }
+
+      // 建立購物車
+      const cartList = []
+      cartList.push(cartData)
+      localStorage.setItem('cart', JSON.stringify(cartList))
+      this.$message.success('商品已加入購物車')
+
+      // 關閉彈窗
+      this.dialogVisible = false
+
+      // 清空表單
+      this.resetDialogForm('submitForm')
+    },
+    buyNowHandler () {
+      this.addToCartHandler()
+      this.$router.push('/checkout')
+    },
+    resetDialogForm (formName) {
+      this.$refs[formName].resetFields()
     }
   }
 }
@@ -97,20 +163,19 @@ h1 {
 p {
   font-weight: 600;
   font-size: 20px;
-  color: #44607a;
+  color: #E37E0C;
 }
 
-label {
-  display: inline-block;
-  font-size: 1rem;
-  padding: 16px 0;
+::v-deep .el-form-item__label {
+  font-size: 1.2rem;
+  padding-bottom: 8px;
 }
 
-button {
+.el-button {
   width: 100%;
   border: none;
   outline: none;
-  padding: 8px 0;
+  padding: 16px 0;
   border-radius: 8px;
   cursor: pointer;
   font-size: 1rem;
@@ -127,14 +192,15 @@ button {
     color: #fff;
     background: #E37E0C;
     transition: .5s ease;
+    margin: 0;
     &:hover {
       background: lighten(#E37E0C, 10%);
     }
   }
 }
 
-.el-input, .el-textarea {
-  font-size: 1rem;
+::v-deep .el-input__inner {
+  font-size: 1.2rem;
 }
 
 </style>

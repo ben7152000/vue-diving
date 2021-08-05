@@ -1,14 +1,14 @@
 <template>
   <div class="social-media">
-      <div class="icon">
+      <a class="icon" href="https://line.me/ti/p/4dHz9K9d1-" target="_blank">
         <font-awesome-icon :icon="['fab','line']" />
-      </div>
-      <div class="icon">
+      </a>
+      <a class="icon" href="https://www.instagram.com/yu_cheng_ig/?hl=en" target="_blank">
         <font-awesome-icon :icon="['fab','instagram-square']" />
-      </div>
-      <div class="icon">
+      </a>
+      <a class="icon" href="https://www.facebook.com/ben7152000/" target="_blank">
         <font-awesome-icon :icon="['fab','facebook-square']" />
-      </div>
+      </a>
   </div>
 </template>
 
@@ -23,10 +23,13 @@ export default {
   position: fixed;
   right: 1%;
   top: 20%;
+  display: flex;
+  flex-direction: column;
 }
 
   .icon {
-    margin: 16px 0;
+    display: inline-block;
+    margin: 8px 0;
     font-size: 1.8rem;
     width: 60px;
     height: 60px;
