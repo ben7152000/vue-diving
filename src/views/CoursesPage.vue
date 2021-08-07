@@ -24,6 +24,7 @@
 <script>
 import Breadcrumb from '../components/Breadcrumb'
 import Subtitle from '../components/Subtitle'
+import axios from 'axios'
 
 export default {
   name: 'CoursesPage',
@@ -33,11 +34,16 @@ export default {
   },
   data () {
     return {
-      coursesList: this.$store.state.coursesAbout.coursesList
+      coursesList: []
     }
   },
-  created () {
-    this.$store.dispatch('coursesAbout/getCourseListInfo')
+  async created () {
+    try {
+      const res = await axios.get('/courses-list')
+      this.coursesList = res.data.data
+    } catch (e) {
+      console.log(e)
+    }
   },
   methods: {
     courseDetail (en) {

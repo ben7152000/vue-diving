@@ -13,7 +13,7 @@
               <span class="addAndSub">-</span>
               <span>{{ item.qty }}</span>
               <span class="addAndSub">+</span>
-              <span><font-awesome-icon icon="trash" /></span>
+              <span @click="removeItem(item.id)"><font-awesome-icon icon="trash" /></span>
             </div>
           </div>
         </div>
@@ -51,6 +51,11 @@ export default {
     checkoutHandler () {
       this.$router.push('/checkout')
       this.drawer = false
+    },
+    removeItem (id) {
+      this.cartList.filter(course => {
+        return course.id !== id
+      })
     }
   }
 }

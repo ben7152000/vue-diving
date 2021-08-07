@@ -3,6 +3,10 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
+// axios
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+
 // mock server
 import './mock'
 
@@ -22,6 +26,8 @@ library.add(faMobileAlt, faAddressCard, faLine, faInstagramSquare, faFacebookSqu
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 Vue.use(ElementUI)
+
+Vue.use(VueAxios, axios)
 
 // lang
 locale.use(lang)

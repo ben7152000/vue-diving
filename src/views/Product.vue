@@ -45,7 +45,7 @@
 <script>
 import Breadcrumb from '../components/Breadcrumb'
 import Subtitle from '../components/Subtitle'
-import { mapState } from 'vuex'
+import axios from 'axios'
 
 export default {
   name: 'Product',
@@ -53,14 +53,18 @@ export default {
     Breadcrumb,
     Subtitle
   },
-  mounted () {
-    this.$store.dispatch('goodsAbout/getGoodInfo')
-      .then(res => {
-        console.log(res)
-      })
+  data () {
+    return {
+      goods: []
+    }
   },
-  computed: {
-    ...mapState('goodsAbout', ['goods'])
+  async created () {
+    try {
+      const res = await axios.get('/goods')
+      this.goods = res.data.data
+    } catch (e) {
+      console.log(e)
+    }
   }
 }
 </script>

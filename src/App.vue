@@ -32,10 +32,6 @@ export default {
     ShoppingCart,
     ShoppingDrawer
   },
-  created () {
-    this.$store.dispatch('coursesAbout/getCourseListInfo')
-    this.$store.dispatch('coursesAbout/getCourseInfo')
-  },
   methods: {
     openDrawer () {
       this.$refs.drawer.openDrawer()
