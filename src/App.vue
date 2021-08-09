@@ -1,11 +1,11 @@
 <template>
   <div id="app" class="main-container">
     <Navbar/>
-    <keep-alive>
       <main>
-        <router-view/>
+        <keep-alive>
+          <router-view/>
+        </keep-alive>
       </main>
-    </keep-alive>
     <Footer />
     <Copyright />
     <SocialMedia />

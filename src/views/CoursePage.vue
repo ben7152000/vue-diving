@@ -115,7 +115,7 @@ import CourseBanner from '../components/CoursePage/CourseBanner'
 import CourseCard from '../components/CoursePage/CourseCard'
 import CourseAlbum from '../components/CoursePage/CourseAlbum'
 import AddToCartDialog from '../components/AddToCartDialog'
-import axios from 'axios'
+import { mapState, mapActions } from 'vuex'
 
 export default {
   name: 'CoursePage',
@@ -127,27 +127,19 @@ export default {
     CourseAlbum,
     AddToCartDialog
   },
-  data () {
-    return {
-      courses: []
-    }
-  },
-  async created () {
-    try {
-      const res = await axios.get('/courses')
-      this.courses = res.data.data
-    } catch (e) {
-      console.log(e)
-    }
+  created () {
+    this.getCourses()
   },
   computed: {
-    filterCourse (state) {
-      return state.courses.filter(i => {
+    ...mapState(['courses']),
+    filterCourse () {
+      return this.courses.filter(i => {
         return i.en === this.$route.params.id
       })
     }
   },
   methods: {
+    ...mapActions(['getCourses']),
     handleOpenDialog () {
       this.$refs.dialog.handleOpen()
     }

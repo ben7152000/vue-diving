@@ -1,8 +1,8 @@
 <template>
   <el-drawer title="購物車" :visible.sync="drawer">
-    <div class="cart-container" v-if="cartList.length">
+    <div class="cart-container" v-if="cartCourses.length">
       <div class="row">
-        <div class="card" v-for="(item, index) in cartList" :key="index">
+        <div class="card" v-for="(item, index) in cartCourses" :key="index">
           <div class="img">
             <img :src="require('../static/Course/'+item.img)" :alt="item.title">
           </div>
@@ -10,10 +10,10 @@
             <h3>{{ item.title }}</h3>
             <p>NT $ {{ item.price }}</p>
             <div class="qty">
-              <span class="addAndSub">-</span>
-              <span>{{ item.qty }}</span>
-              <span class="addAndSub">+</span>
-              <span @click="removeItem(item.id)"><font-awesome-icon icon="trash" /></span>
+              <span class="addAndSub" @click="subItem(index)">-</span>
+              <span>{{ item.count }}</span>
+              <span class="addAndSub" @click="addItem(index)">+</span>
+              <span @click="removeItem(index)"><font-awesome-icon icon="trash" /></span>
             </div>
           </div>
         </div>
@@ -28,34 +28,27 @@
 </template>
 
 <script>
+import { mapState, mapGetters, mapMutations } from 'vuex'
+
 export default {
   name: 'ShoppingDrawer',
   data () {
     return {
-      drawer: false,
-      cartList: JSON.parse(localStorage.getItem('cart')) || []
+      drawer: false
     }
   },
   computed: {
-    total () {
-      const finalTotal = this.cartList.map(item => {
-        return item.qty * item.price
-      })
-      return finalTotal[0]
-    }
+    ...mapState(['cartCourses']),
+    ...mapGetters(['total'])
   },
   methods: {
+    ...mapMutations(['addItem', 'subItem', 'removeItem']),
     openDrawer () {
       this.drawer = true
     },
     checkoutHandler () {
       this.$router.push('/checkout')
       this.drawer = false
-    },
-    removeItem (id) {
-      this.cartList.filter(course => {
-        return course.id !== id
-      })
     }
   }
 }
@@ -75,6 +68,7 @@ img {
 
 ::v-deep .el-drawer {
   background: #eee;
+  width: 20% !important;
 }
 
 ::v-deep .el-drawer__body {
@@ -93,6 +87,7 @@ img {
   height: 100%;
   > .row {
     display: flex;
+    flex-direction: column;
     padding: 8px;
   }
   > .num-group {
@@ -104,7 +99,7 @@ img {
 
 .card {
   display: flex;
-  margin: 0 auto;
+  margin: 10px auto;
   height: 150px;
   box-shadow: 0 10px 10px rgba(0, 0, 0, .1);
   > .img {

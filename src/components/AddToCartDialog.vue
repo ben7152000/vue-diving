@@ -27,7 +27,7 @@
             />
           </el-form-item>
           <el-form-item label="人數">
-            <el-select placeholder="請選擇報名人數" style="width: 100%" v-model="submitForm.selectedNum">
+            <el-select placeholder="請選擇報名人數" style="width: 100%" v-model="submitForm.count">
               <el-option :label="num" :value="num" v-for="num in 10" :key="num">選購 {{ num }} 人</el-option>
             </el-select>
           </el-form-item>
@@ -42,6 +42,8 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
+
 export default {
   name: 'AddToCartDialog',
   props: {
@@ -53,11 +55,10 @@ export default {
   data () {
     return {
       dialogVisible: false,
-      course: {},
       submitForm: {
         date: '',
         time: '',
-        selectedNum: 1
+        count: 1
       },
       pickerOptions: {
         disabledDate: time => {
@@ -83,51 +84,38 @@ export default {
     }
   },
   methods: {
+    ...mapMutations(['addToCart']),
     handleOpen () {
       this.dialogVisible = true
     },
     addCartForm (formName) {
       this.$refs[formName].validate(valid => {
         if (valid) {
-          this.addToCartHandler()
+          const cartData = {
+            ...this.submitForm,
+            ...this.filterCourse
+          }
+          this.addToCart(cartData)
+          this.$message.success('商品已加入購物車')
+
+          // 關閉彈窗
+          this.dialogVisible = false
+
+          // 清空表單
+          this.$refs.submitForm.resetFields()
         } else {
           return false
         }
       })
     },
-    addToCartHandler () {
-      // 複製一份
-      this.course = this.filterCourse
-
-      // 購物車資料
-      const cartData = {
-        courseId: this.course.id,
-        title: this.course.title,
-        price: this.course.price,
-        img: this.course.img,
-        qty: this.submitForm.selectedNum,
-        date: this.submitForm.date,
-        time: this.submitForm.time
-      }
-
-      // 建立購物車
-      const cartList = []
-      cartList.push(cartData)
-      localStorage.setItem('cart', JSON.stringify(cartList))
-      this.$message.success('商品已加入購物車')
-
-      // 關閉彈窗
-      this.dialogVisible = false
-
-      // 清空表單
-      this.resetDialogForm('submitForm')
-    },
+    // 立即購買
     buyNowHandler () {
-      this.addToCartHandler()
+      const cartData = {
+        ...this.submitForm,
+        ...this.filterCourse
+      }
+      this.addToCart(cartData)
       this.$router.push('/checkout')
-    },
-    resetDialogForm (formName) {
-      this.$refs[formName].resetFields()
     }
   }
 }

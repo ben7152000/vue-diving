@@ -24,7 +24,7 @@
 <script>
 import Breadcrumb from '../components/Breadcrumb'
 import Subtitle from '../components/Subtitle'
-import axios from 'axios'
+import { mapState, mapActions } from 'vuex'
 
 export default {
   name: 'CoursesPage',
@@ -32,20 +32,14 @@ export default {
     Breadcrumb,
     Subtitle
   },
-  data () {
-    return {
-      coursesList: []
-    }
+  created () {
+    this.getCoursesList()
   },
-  async created () {
-    try {
-      const res = await axios.get('/courses-list')
-      this.coursesList = res.data.data
-    } catch (e) {
-      console.log(e)
-    }
+  computed: {
+    ...mapState(['coursesList'])
   },
   methods: {
+    ...mapActions(['getCoursesList']),
     courseDetail (en) {
       this.$router.push({
         name: 'CoursePage',
