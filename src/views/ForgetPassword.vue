@@ -62,6 +62,8 @@ export default {
               type: 'success'
             })
           }, 2000)
+          // 清空
+          this.account = ''
         } else {
           console.log('error submit!!')
           return false

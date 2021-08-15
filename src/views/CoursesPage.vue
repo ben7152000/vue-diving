@@ -36,10 +36,10 @@ export default {
     this.getCoursesList()
   },
   computed: {
-    ...mapState(['coursesList'])
+    ...mapState('product', ['coursesList'])
   },
   methods: {
-    ...mapActions(['getCoursesList']),
+    ...mapActions('product', ['getCoursesList']),
     courseDetail (en) {
       this.$router.push({
         name: 'CoursePage',

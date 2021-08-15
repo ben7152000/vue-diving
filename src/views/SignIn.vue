@@ -66,8 +66,16 @@ export default {
     submitHandler (formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
+          this.$message({
+            message: '成功登入',
+            type: 'success'
+          })
+          // 保存本地端
+          window.localStorage.setItem('userInfo', this.account)
           this.$router.push('/member')
-          this.$message('成功登入')
+          // 清空
+          this.account = ''
+          this.password = ''
         } else {
           console.log('error submit!!')
           return false

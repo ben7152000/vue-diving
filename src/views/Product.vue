@@ -54,10 +54,10 @@ export default {
     Subtitle
   },
   computed: {
-    ...mapState(['goods'])
+    ...mapState('product', ['goods'])
   },
   methods: {
-    ...mapActions(['getGoods'])
+    ...mapActions('product', ['getGoods'])
   },
   created () {
     this.getGoods()

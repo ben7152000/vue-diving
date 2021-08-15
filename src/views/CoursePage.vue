@@ -131,7 +131,7 @@ export default {
     this.getCourses()
   },
   computed: {
-    ...mapState(['courses']),
+    ...mapState('product', ['courses']),
     filterCourse () {
       return this.courses.filter(i => {
         return i.en === this.$route.params.id
@@ -139,7 +139,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['getCourses']),
+    ...mapActions('product', ['getCourses']),
     handleOpenDialog () {
       this.$refs.dialog.handleOpen()
     }
