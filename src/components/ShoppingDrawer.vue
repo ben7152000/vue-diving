@@ -1,17 +1,17 @@
 <template>
   <el-drawer title="購物車" :visible.sync="drawer">
-    <div class="cart-container" v-if="cartCourses.length">
+    <div class="cart-container" v-if="items.length !== 0">
       <div class="row">
-        <div class="card" v-for="(item, index) in cartCourses" :key="index">
+        <div class="card" v-for="(item, index) in items" :key="index">
           <div class="img">
-            <img :src="require('../static/Course/'+item.img)" :alt="item.title">
+            <img :src="require('../static/Course/'+item.course.img)" :alt="item.course.title">
           </div>
           <div class="info">
-            <h3>{{ item.title }}</h3>
-            <p>NT $ {{ item.price }}</p>
+            <h3>{{ item.course.title }}</h3>
+            <p>NT $ {{ item.course.price }}</p>
             <div class="qty">
               <span class="addAndSub" @click="subItem(index)">-</span>
-              <span>{{ item.count }}</span>
+              <span>{{ item.course.count }}</span>
               <span class="addAndSub" @click="addItem(index)">+</span>
               <span @click="removeItem(index)"><font-awesome-icon icon="trash" /></span>
             </div>
@@ -38,11 +38,11 @@ export default {
     }
   },
   computed: {
-    ...mapState(['cartCourses']),
-    ...mapGetters(['total'])
+    ...mapState('cart', ['items']),
+    ...mapGetters('cart', ['total'])
   },
   methods: {
-    ...mapMutations(['addItem', 'subItem', 'removeItem']),
+    ...mapMutations('cart', ['addItem', 'subItem', 'removeItem']),
     openDrawer () {
       this.drawer = true
     },

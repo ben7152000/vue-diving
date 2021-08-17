@@ -1,5 +1,5 @@
 <template>
-<section>
+<section v-if="!isLoading">
 
   <Breadcrumb name="執照課程"/>
   <Subtitle subtitle="執照課程"/>
@@ -115,7 +115,7 @@ import CourseBanner from '../components/CoursePage/CourseBanner'
 import CourseCard from '../components/CoursePage/CourseCard'
 import CourseAlbum from '../components/CoursePage/CourseAlbum'
 import AddToCartDialog from '../components/AddToCartDialog'
-import { mapState, mapActions } from 'vuex'
+import { mapState } from 'vuex'
 
 export default {
   name: 'CoursePage',
@@ -127,22 +127,40 @@ export default {
     CourseAlbum,
     AddToCartDialog
   },
-  created () {
-    this.getCourses()
-  },
-  computed: {
-    ...mapState('product', ['courses']),
-    filterCourse () {
-      return this.courses.filter(i => {
-        return i.en === this.$route.params.id
-      })
+  data () {
+    return {
+      filterCourse: [],
+      isLoading: false
     }
   },
+  created () {
+    this.getData()
+  },
+  computed: {
+    ...mapState('product', ['courses'])
+  },
   methods: {
-    ...mapActions('product', ['getCourses']),
+    async getData () {
+      try {
+        this.isLoading = true
+        await this.$store.dispatch('product/getCourses')
+        this.filterCourse = await this.courses.filter(i => {
+          return i.en === this.$route.params.id
+        })
+      } catch (e) {
+        this.isLoading = false
+        console.log(e)
+      } finally {
+        this.isLoading = false
+      }
+    },
     handleOpenDialog () {
       this.$refs.dialog.handleOpen()
     }
+  },
+  beforeRouteUpdate (to, from, next) {
+    this.getData()
+    next()
   }
 }
 </script>

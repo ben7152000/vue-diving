@@ -84,7 +84,7 @@ export default {
     }
   },
   methods: {
-    ...mapMutations(['addToCart']),
+    ...mapMutations('cart', ['addToCart']),
     handleOpen () {
       this.dialogVisible = true
     },
@@ -93,7 +93,8 @@ export default {
         if (valid) {
           const cartData = {
             ...this.submitForm,
-            ...this.filterCourse
+            ...this.filterCourse,
+            checkPaid: false
           }
           this.addToCart(cartData)
           this.$message.success('商品已加入購物車')
