@@ -17,17 +17,26 @@
       <CheckInfo v-if="active === 0"/>
       <CheckForm v-if="active === 1" />
       <CheckOrder v-if="active === 2" />
+      <CheckAlert v-if="active === 3"/>
 
       <div class="container">
         <div class="row">
           <div class="btn" v-if="active === 0">
-            <el-button v-scroll-to="'#navbar'">確認商品</el-button>
+            <el-button>確認商品</el-button>
           </div>
           <div class="btn" v-if="active === 1">
-            <el-button v-scroll-to="'#navbar'">送出訂單</el-button>
+            <el-button>送出訂單</el-button>
           </div>
           <div class="btn" v-if="active === 2">
-            <el-button v-scroll-to="'#navbar'">確認付款</el-button>
+            <el-button>確認付款</el-button>
+          </div>
+          <div v-if="active === 3" class="btn-group">
+            <router-link to="/member">
+              <el-button>查看訂單紀錄</el-button>
+            </router-link>
+            <router-link to="/">
+              <el-button>回首頁</el-button>
+            </router-link>
           </div>
         </div>
       </div>
@@ -42,6 +51,7 @@ import Subtitle from '../components/Subtitle'
 import CheckInfo from '../components/CheckOut/CheckInfo'
 import CheckForm from '../components/CheckOut/CheckForm'
 import CheckOrder from '../components/CheckOut/CheckOrder'
+import CheckAlert from '../components/CheckOut/CheckAlert'
 
 export default {
   name: 'Checkout',
@@ -50,11 +60,12 @@ export default {
     Subtitle,
     CheckInfo,
     CheckForm,
-    CheckOrder
+    CheckOrder,
+    CheckAlert
   },
   data () {
     return {
-      active: 2
+      active: 0
     }
   }
 }
@@ -75,10 +86,17 @@ export default {
   color: #808080;
 }
 
-.btn {
+.btn,
+.btn-group {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.btn-group {
+  a:nth-child(2) {
+    margin-left: 16px;
+  }
 }
 
 .el-button {
