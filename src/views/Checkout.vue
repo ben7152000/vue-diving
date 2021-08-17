@@ -1,15 +1,100 @@
 <template>
-  <div>
+  <section>
+    <Breadcrumb name="商品結帳"/>
+    <Subtitle subtitle="商品結帳"/>
 
-  </div>
+    <section>
+      <div class="container">
+        <div class="row">
+          <el-steps simple :active="active">
+            <el-step title="確認商品" icon="el-icon-shopping-cart-2" />
+            <el-step title="訂購資訊" icon="el-icon-edit" />
+            <el-step title="付款完成" icon="el-icon-bank-card" />
+          </el-steps>
+        </div>
+      </div>
+
+      <CheckInfo v-if="active === 0"/>
+      <CheckForm v-if="active === 1" />
+      <CheckOrder v-if="active === 2" />
+
+      <div class="container">
+        <div class="row">
+          <div class="btn" v-if="active === 0">
+            <el-button v-scroll-to="'#navbar'">確認商品</el-button>
+          </div>
+          <div class="btn" v-if="active === 1">
+            <el-button v-scroll-to="'#navbar'">送出訂單</el-button>
+          </div>
+          <div class="btn" v-if="active === 2">
+            <el-button v-scroll-to="'#navbar'">確認付款</el-button>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </section>
 </template>
 
 <script>
+import Breadcrumb from '../components/Breadcrumb'
+import Subtitle from '../components/Subtitle'
+import CheckInfo from '../components/CheckOut/CheckInfo'
+import CheckForm from '../components/CheckOut/CheckForm'
+import CheckOrder from '../components/CheckOut/CheckOrder'
+
 export default {
-  name: 'Checkout'
+  name: 'Checkout',
+  components: {
+    Breadcrumb,
+    Subtitle,
+    CheckInfo,
+    CheckForm,
+    CheckOrder
+  },
+  data () {
+    return {
+      active: 2
+    }
+  }
 }
 </script>
 
 <style lang="scss" scoped>
 
+.el-steps--simple {
+  padding: 16px 150px;
+  background: #4E4E4E;
+}
+
+::v-deep .is-process {
+  color: #E37E0C;
+}
+
+::v-deep .is-finish {
+  color: #808080;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.el-button {
+  cursor: pointer;
+  color: #fff;
+  margin-top: 64px;
+  font-size: 1.3rem;
+  padding: 16px 32px;
+  border-radius: 16px;
+  outline: none;
+  border: none;
+  background: #E37E0C;
+  transition: color .5s ease,background-color .5s ease;
+  &:hover {
+    color: #E37E0C;
+    background: #fff;
+  }
+}
 </style>
