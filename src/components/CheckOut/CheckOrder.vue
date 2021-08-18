@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="check-order">
-        <h2>訂單編號：123456</h2>
+        <h2>訂單編號：{{ order.orderId }}</h2>
         <el-divider />
         <h4>訂購人資訊</h4>
         <el-table
@@ -48,6 +48,8 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
   name: 'CheckOrder',
   data () {
@@ -88,6 +90,9 @@ export default {
         padding: '24px 0'
       }
     }
+  },
+  computed: {
+    ...mapState('order', ['order'])
   }
 }
 </script>

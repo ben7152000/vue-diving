@@ -58,6 +58,7 @@
 </template>
 
 <script>
+import { mapState, mapGetters, mapMutations } from 'vuex'
 
 export default {
   name: 'CheckForm',
@@ -110,6 +111,52 @@ export default {
           }
         ]
       }
+    }
+  },
+  computed: {
+    ...mapState('cart', ['items']),
+    ...mapGetters('cart', ['total'])
+  },
+  methods: {
+    ...mapMutations('order', ['addOrder']),
+    ...mapMutations('cart', ['clearItem']),
+    validateForm (formName) {
+      this.$refs[formName].validate(valid => {
+        if (valid) {
+          this.$notify({
+            title: '成功',
+            message: '訂單已成立，請盡快付款～～',
+            type: 'success'
+          })
+
+          const orderId = Math.random().toString(36).slice(-8)
+
+          const orderData = {
+            orderId,
+            user: this.formInfo,
+            items: this.items,
+            isPaid: '未付款',
+            location: '龍洞',
+            total: this.total,
+            date: Date.now()
+          }
+
+          // 加入訂單 vuex
+          this.addOrder(orderData)
+
+          // 清空購物車
+          this.clearItem()
+
+          // 清空資料
+          // this.formInfo.name = ''
+          // this.formInfo.email = ''
+          // this.formInfo.tel = ''
+          // this.formInfo.address = ''
+          // this.formInfo.desc = ''
+        } else {
+          return false
+        }
+      })
     }
   }
 }

@@ -14,18 +14,18 @@
         </div>
       </div>
 
-      <CheckInfo v-if="active === 0"/>
-      <CheckForm v-if="active === 1" />
+      <CheckInfo v-if="active === 0" />
+      <CheckForm v-if="active === 1" ref="checkForm"/>
       <CheckOrder v-if="active === 2" />
       <CheckAlert v-if="active === 3"/>
 
       <div class="container">
         <div class="row">
           <div class="btn" v-if="active === 0">
-            <el-button>確認商品</el-button>
+            <el-button @click="confirmCart">確認商品</el-button>
           </div>
           <div class="btn" v-if="active === 1">
-            <el-button>送出訂單</el-button>
+            <el-button @click="confirmOrder">送出訂單</el-button>
           </div>
           <div class="btn" v-if="active === 2">
             <el-button>確認付款</el-button>
@@ -66,6 +66,29 @@ export default {
   data () {
     return {
       active: 0
+    }
+  },
+  methods: {
+    async confirmCart () {
+      try {
+        await this.$confirm('請再次確認商品，下一步後將無法更改', 'Warning', {
+          confirmButtonText: '確認',
+          cancelButtonText: '取消',
+          type: 'warning',
+          center: true
+        })
+        this.active++
+      } catch (e) {
+        console.log(e)
+      }
+    },
+    async confirmOrder () {
+      try {
+        await this.$refs.checkForm.validateForm('formInfo')
+        this.active++
+      } catch (e) {
+        console.log(e)
+      }
     }
   }
 }

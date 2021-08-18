@@ -1,17 +1,18 @@
 <template>
   <el-drawer title="購物車" :visible.sync="drawer">
-    <div class="cart-container" v-if="items.length !== 0">
+    <div class="empty-cart" v-if="items.length === 0">購物車是空的</div>
+    <div class="cart-container" v-else>
       <div class="row">
         <div class="card" v-for="(item, index) in items" :key="index">
           <div class="img">
-            <img :src="require('../static/Course/'+item.course.img)" :alt="item.course.title">
+            <img :src="require('../static/Course/'+item.img)" :alt="item.title">
           </div>
           <div class="info">
-            <h3>{{ item.course.title }}</h3>
-            <p>NT $ {{ item.course.price }}</p>
-            <div class="qty">
+            <h3>{{ item.title }}</h3>
+            <p>NT $ {{ item.price }}</p>
+            <div class="count">
               <span class="addAndSub" @click="subItem(index)">-</span>
-              <span>{{ item.course.count }}</span>
+              <span>{{ item.count }}</span>
               <span class="addAndSub" @click="addItem(index)">+</span>
               <span @click="removeItem(index)"><font-awesome-icon icon="trash" /></span>
             </div>
@@ -23,7 +24,6 @@
         <button @click.prevent="checkoutHandler">前往結帳</button>
       </div>
     </div>
-    <div class="empty-cart" v-else>購物車是空的</div>
   </el-drawer>
 </template>
 
@@ -117,7 +117,7 @@ img {
     > p {
       font-size: .9rem;
     }
-    > .qty {
+    > .count {
       display: flex;
       justify-content: space-between;
       > span {

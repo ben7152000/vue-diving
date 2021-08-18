@@ -93,8 +93,7 @@ export default {
         if (valid) {
           const cartData = {
             ...this.submitForm,
-            ...this.filterCourse,
-            checkPaid: false
+            ...this.filterCourse
           }
           this.addToCart(cartData)
           this.$message.success('商品已加入購物車')
