@@ -26,7 +26,22 @@
           <router-link to="/contact-us" tag="li">聯絡我們</router-link>
           <router-link to="/sign-in" tag="li">會員專區</router-link>
         </ul>
+        <div class="phone">
+          <div class="toggle" @click="toggle = true">
+            <span />
+            <span />
+            <span />
+          </div>
+        </div>
       </div>
+      <ul class="nav-list" v-if="toggle">
+        <font-awesome-icon icon="times" class="times" @click="toggle = false"/>
+        <router-link to="/about-us" tag="li">關於龍洞岬</router-link>
+        <router-link to="/courses-page" tag="li">執照課程</router-link>
+        <router-link to="/products" tag="li">商品櫥窗</router-link>
+        <router-link to="/contact-us" tag="li">聯絡我們</router-link>
+        <router-link to="/sign-in" tag="li">會員專區</router-link>
+      </ul>
     </div>
   </nav>
 </template>
@@ -34,7 +49,20 @@
 <script>
 export default {
   name: 'Navbar',
-  props: ['courses']
+  props: ['courses'],
+  data () {
+    return {
+      toggle: false
+    }
+  },
+  watch: {
+    $route (to, from) {
+      if (to.path === '/' || to.path === '/about-us' || to.path === '/courses-page' || to.path === '/products' || to.path === '/contact-us' || to.path === '/sign-in') {
+        this.toggle = false
+      }
+    }
+
+  }
 }
 </script>
 
@@ -101,6 +129,75 @@ li {
             color: #E37E0C;
           }
         }
+      }
+    }
+  }
+  > .phone {
+    display: none;
+  }
+}
+
+.nav-list {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .row {
+    justify-content: space-between;
+    > ul {
+      display: none;
+    }
+    > .phone {
+      display: block;
+      padding: 24px;
+      > .toggle {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        cursor: pointer;
+        > span {
+          display: block;
+          width: 30px;
+          height: 4px;
+          background: #fff;
+          margin-top: 2px;
+          margin-bottom: 2px;
+        }
+      }
+    }
+  }
+
+  .nav-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #000;
+    opacity: .8;
+    z-index: 999;
+    > .times {
+      color: #fff;
+      font-size: 2.5rem;
+      position: absolute;
+      top: 24px;
+      right: 50px;
+      z-index: 999;
+      cursor: pointer;
+      &:hover {
+        color: #E37E0C;
+      }
+    }
+    > li {
+      color: #fff;
+      font-size: 2.5rem;
+      padding: 24px 0;
+      transition: .5s ease;
+      &:hover {
+        color: #E37E0C;
       }
     }
   }

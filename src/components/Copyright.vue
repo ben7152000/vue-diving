@@ -54,4 +54,42 @@ export default {
     }
   }
 }
+
+@media screen and (max-width: 576px) {
+  .row {
+    flex-direction: column-reverse;
+    align-items: center;
+    > .left {
+      flex-direction: column;
+      padding: 50px 0 0;
+      text-align: center;
+    }
+    > .right {
+      > ul {
+        > li {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .row {
+    flex-direction: column-reverse;
+    align-items: center;
+    > .left {
+      display: flex;
+      padding: 50px 0 0;
+    }
+    > .right {
+      > ul {
+        > li {
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+
 </style>

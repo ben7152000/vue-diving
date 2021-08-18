@@ -83,4 +83,26 @@ footer {
     }
   }
 }
+
+@media screen and (max-width: 576px) {
+  footer {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .row {
+    padding: 50px 0 25px;
+    > ul {
+      flex-wrap: wrap;
+      > li {
+        flex: 0 1 50%;
+        > ul {
+          padding: 32px 0;
+        }
+      }
+    }
+  }
+}
+
 </style>
